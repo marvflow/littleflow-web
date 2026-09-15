@@ -92,10 +92,10 @@
       <a href="jak-ucime" class="site-nav__link">How we teach</a>
       <a href="den-ve-skolce" class="site-nav__link">A day at Little FLOW</a>
       <a href="skolne" class="site-nav__link">Tuition</a>
-      <a href="prijimani" class="site-nav__link">Admissions</a>
+      <a href="navsteva" class="site-nav__link">Visit us</a>
       <a href="kontakt" class="site-nav__link" aria-current="page">Contact</a>
       <a href="../kontakt" class="site-nav__link" lang="cs" hreflang="cs" title="Česky">CZ</a>
-      <a href="#form" class="site-nav__cta">Book a meeting →</a>
+      <a href="#form" class="site-nav__cta">Come and visit →</a>
     </nav>
 
     <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
@@ -106,12 +106,12 @@
 
 <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
   <nav class="mobile-drawer__inner" aria-label="Mobile menu">
-    <a href="#form" class="btn btn-primary">Book a meeting →</a>
+    <a href="#form" class="btn btn-primary">Come and visit →</a>
     <a href="./" class="mobile-drawer__link">Home</a>
     <a href="jak-ucime" class="mobile-drawer__link">How we teach</a>
     <a href="den-ve-skolce" class="mobile-drawer__link">A day at Little FLOW</a>
     <a href="skolne" class="mobile-drawer__link">Tuition</a>
-    <a href="prijimani" class="mobile-drawer__link">Admissions</a>
+    <a href="navsteva" class="mobile-drawer__link">Visit us</a>
     <a href="kontakt" class="mobile-drawer__link">Contact</a>
     <a href="https://www.skolaflow.cz/en/" class="mobile-drawer__link" target="_blank" rel="noopener">FLOW Elementary ↗</a>
     <a href="../kontakt" class="mobile-drawer__link" lang="cs" hreflang="cs">🇨🇿 Česky</a>
@@ -129,26 +129,28 @@
         <div>
           <span class="hero-a__eyebrow">Contact</span>
           <h1>Come and <em>visit</em>.</h1>
-          <p class="lead">The FLOW campus in Balabenka — tram at the door, metro B 10 minutes on foot. The best way to get to know Little FLOW is a personal meeting.</p>
+          <p class="lead">The FLOW campus in Balabenka — tram at the door, metro B 10 minutes on foot. The best way to get to know Little FLOW is to come on a Thursday morning.</p>
           <div class="hero-a__badges">
             <span class="hero-a__badge">Prague 9 · Balabenka</span>
             <span class="hero-a__badge">Tram 1 min</span>
             <span class="hero-a__badge">Metro B 10 min</span>
           </div>
-          <!-- Open-day řádek — naplní a odkryje flow.js z Eventy CSV (řádek ms-od). Skrytý, pokud není aktivní budoucí termín. -->
-          <div class="lf-openday" id="lf-openday" hidden>
-            <span class="lf-openday__ico" aria-hidden="true">📅</span>
-            <span class="lf-openday__label">Next open day</span>
-            <span class="lf-openday__date" id="lf-openday-date"></span>
-            <span class="lf-openday__meta" id="lf-openday-meta"></span>
-          </div>
           <div class="hero-a__ctas">
-            <a href="#form" class="btn btn-primary">Book a meeting →</a>
+            <a href="#form" class="btn btn-primary">Book a time →</a>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- VISIT BAR — Experience Morning -->
+  <div class="visit-bar">
+    <div class="container visit-bar__inner">
+      <span class="visit-bar__label">Experience Morning</span>
+      <p class="visit-bar__text"><strong>every Thursday, 8:30 — 10:30</strong> — bring your child along and spend a real Little FLOW morning with us.</p>
+      <a href="navsteva" class="visit-bar__link">What it looks like →</a>
+    </div>
+  </div>
 
   <!-- CONTACT DETAILS -->
   <section class="section">
@@ -167,7 +169,7 @@
         </div>
         <div class="contact-col">
           <span class="contact-col__label">Follow us</span>
-          <p class="small">Photos from projects, family events, open days.</p>
+          <p class="small">Photos from projects, family events, visit dates.</p>
           <div class="site-footer__socials">
             <a href="https://www.facebook.com/skolaflowcz" target="_blank" rel="noopener" class="site-footer__social" aria-label="Facebook"><img src="../images/facebook-logo-white.svg" alt="" loading="lazy"></a>
             <a href="https://www.instagram.com/skolaflowcz" target="_blank" rel="noopener" class="site-footer__social" aria-label="Instagram"><img src="../images/instagram-logo-white.svg" alt="" loading="lazy"></a>
@@ -184,11 +186,11 @@
   <!-- FINAL CTA — formulář -->
   <section class="section cta-section" id="form">
     <div class="container--narrow">
-      <span class="eyebrow eyebrow--on-dark">Book a meeting</span>
+      <span class="eyebrow eyebrow--on-dark">Rolling admissions · limited capacity</span>
       <h2 class="h-section">Write to us. <br><em>We reply within one business day.</em></h2>
-      <p class="lead">An hour at our Balabenka campus — we’ll show you the kindergarten, how we teach, and talk about what you’re looking for.</p>
+      <p class="lead">An Experience Morning with your child, Coffee with Management just for you, or an individual meeting — choose whatever suits you.</p>
       <form id="callback-form" class="form-closer__card" data-endpoint="https://script.google.com/macros/s/AKfycbw7-QIefbMmKHPXo1MKYXoxgxiIm4nQypC09bWCsILSHzFNZYEoE_Txo0OSq6EFrEfR/exec" novalidate style="text-align:left; margin-top: var(--space-lg);">
-        <input type="hidden" name="source" value="little-flow-form">
+        <input type="hidden" name="source" value="little-flow-kontakt-form">
         <input type="hidden" name="lang" value="en">
         <input type="hidden" name="page" value="littleflow.cz/kontakt">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="form-closer__honeypot" aria-hidden="true">
@@ -217,15 +219,25 @@
           </div>
         </div>
         <div class="form-field" style="margin-top: var(--space-sm);">
+          <label for="ms-interest">I’m interested in</label>
+          <select class="form-select" id="ms-interest" name="zajem" required>
+            <option value="" disabled selected>— Choose —</option>
+            <option>Experience Morning (every Thursday, 8:30 — 10:30)</option>
+            <option>Coffee with Management (by arrangement)</option>
+            <option>An individual meeting</option>
+            <option>Just send me information</option>
+          </select>
+        </div>
+        <div class="form-field" style="margin-top: var(--space-sm);">
           <label for="ms-message">Message <span class="form-closer__field-hint">(optional — planned start date, programme option, questions)</span></label>
-          <textarea class="form-input" id="ms-message" name="message" rows="3" placeholder="Planning to start in January, interested in Full day 5 days…"></textarea>
+          <textarea class="form-input" id="ms-message" name="message" rows="3" placeholder="We’d like to start in January, interested in the full day…"></textarea>
         </div>
         <div class="form-closer__submit-row">
           <label class="form-gdpr">
             <input type="checkbox" required>
             <span>I consent to personal data processing per the <a href="gdpr">GDPR policy</a>.</span>
           </label>
-          <button type="submit" class="btn btn-primary">Submit interest in Little FLOW →</button>
+          <button type="submit" class="btn btn-primary">Send →</button>
         </div>
       </form>
     </div>
@@ -250,7 +262,7 @@
         <a href="jak-ucime" class="site-footer__link">How we teach</a>
         <a href="den-ve-skolce" class="site-footer__link">A day at Little FLOW</a>
         <a href="skolne" class="site-footer__link">Tuition</a>
-        <a href="prijimani" class="site-footer__link">Admissions</a>
+        <a href="navsteva" class="site-footer__link">Visit us</a>
         <a href="kontakt" class="site-footer__link">Contact</a>
         <a href="gdpr" class="site-footer__link">Privacy (GDPR)</a>
         <a href="https://www.skolaflow.cz/en/" class="site-footer__link" target="_blank" rel="noopener">FLOW Elementary ↗</a>
@@ -259,6 +271,7 @@
         <p class="site-footer__heading">Campus</p>
         <p>Českomoravská 1a<br>190 00 Prague 9 — Balabenka</p>
         <p class="site-footer__small" style="margin-top:14px;">Tram Balabenka · 1 min walk<br>Metro B Českomoravská · 10 min walk</p>
+        <p class="site-footer__small" style="margin-top:14px;"><strong style="color:var(--c-yellow);">Experience Morning</strong><br>every Thursday · 8:30 — 10:30</p>
       </div>
       <div>
         <p class="site-footer__heading">Get in touch</p>
@@ -279,7 +292,7 @@
         IČO: 22440011<br>
         Registered office: Čechova 632/15, Praha&nbsp;7</p>
       </div>
-      <a href="#form" class="btn btn-primary site-footer__cta">Book a meeting →</a>
+      <a href="#form" class="btn btn-primary site-footer__cta">Come and visit →</a>
     </div>
 
     <p class="site-footer__eu-text">Little FLOW is part of the FLOW family — the Founders’ School.</p>

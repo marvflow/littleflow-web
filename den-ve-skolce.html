@@ -92,10 +92,10 @@
       <a href="jak-ucime" class="site-nav__link">Jak učíme</a>
       <a href="den-ve-skolce" class="site-nav__link" aria-current="page">Den ve školce</a>
       <a href="skolne" class="site-nav__link">Školné</a>
-      <a href="prijimani" class="site-nav__link">Přijímání</a>
+      <a href="navsteva" class="site-nav__link">Návštěva</a>
       <a href="kontakt" class="site-nav__link">Kontakt</a>
       <a href="en/den-ve-skolce" class="site-nav__link" lang="en" hreflang="en" title="English">EN</a>
-      <a href="prijimani#form" class="site-nav__cta">Sjednat schůzku →</a>
+      <a href="navsteva#form" class="site-nav__cta">Přijďte na návštěvu →</a>
     </nav>
 
     <button class="burger" type="button" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-drawer">
@@ -106,12 +106,12 @@
 
 <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
   <nav class="mobile-drawer__inner" aria-label="Mobilní menu">
-    <a href="prijimani#form" class="btn btn-primary">Sjednat schůzku →</a>
+    <a href="navsteva#form" class="btn btn-primary">Přijďte na návštěvu →</a>
     <a href="./" class="mobile-drawer__link">Domů</a>
     <a href="jak-ucime" class="mobile-drawer__link">Jak učíme</a>
     <a href="den-ve-skolce" class="mobile-drawer__link">Den ve školce</a>
     <a href="skolne" class="mobile-drawer__link">Školné</a>
-    <a href="prijimani" class="mobile-drawer__link">Přijímání</a>
+    <a href="navsteva" class="mobile-drawer__link">Návštěva</a>
     <a href="kontakt" class="mobile-drawer__link">Kontakt</a>
     <a href="https://www.skolaflow.cz/" class="mobile-drawer__link" target="_blank" rel="noopener">ZŠ FLOW ↗</a>
     <a href="en/den-ve-skolce" class="mobile-drawer__link" lang="en" hreflang="en">🇬🇧 English</a>
@@ -137,16 +137,25 @@
             <span class="hero-a__badge">Klidný čas odpoledne</span>
           </div>
           <div class="hero-a__ctas">
-            <a href="prijimani#form" class="btn btn-primary">Sjednat schůzku →</a>
-            <a href="skolne" class="btn btn-secondary btn-secondary--on-dark">Školné a varianty</a>
+            <a href="navsteva#form" class="btn btn-primary">Přijďte na návštěvu →</a>
+            <a href="skolne" class="btn btn-secondary btn-secondary--on-dark">Školné</a>
           </div>
         </div>
         <div class="hero-a__photo">
-          <img src="images/little-flow-trida-2.jpg" alt="Prostory Little FLOW — herna s kuchyňkou a stolky" loading="eager" fetchpriority="high">
+          <img src="images/little-flow-trida-2.jpg" alt="Herna Little FLOW — kuchyňka a stolky" loading="eager" fetchpriority="high">
         </div>
       </div>
     </div>
   </section>
+
+  <!-- VISIT BAR — Experience Morning -->
+  <div class="visit-bar">
+    <div class="container visit-bar__inner">
+      <span class="visit-bar__label">Experience Morning</span>
+      <p class="visit-bar__text"><strong>každý čtvrtek, 8:30 — 10:30</strong> — přijďte i s dítětem a zažijte s námi běžné ráno v Little FLOW.</p>
+      <a href="navsteva" class="visit-bar__link">Jak to probíhá →</a>
+    </div>
+  </div>
 
   <!-- DENNÍ PROGRAM — vertikální timeline -->
   <section class="section">
@@ -198,12 +207,38 @@
           </div>
         </div>
       </div>
-      <p class="fee-note" style="margin-top: var(--space-lg);">Zkrácený den končí ve 13:00, celodenní program v 17:00. Varianty najdete ve <a href="skolne">školném</a>.</p>
+      <p class="fee-note" style="margin-top: var(--space-lg);">Zkrácený den končí ve 13:00, celodenní program v 17:00. Sazby najdete ve <a href="skolne">školném</a>.</p>
+    </div>
+  </section>
+
+  <!-- WELLBEING -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Bezpečí a pohoda</span>
+        <h2 class="h-section">Klidné dítě <em class="h-em">se učí samo</em>.</h2>
+        <p class="lead text-center" style="margin-inline:auto;">Malá skupina není jen čislo na webu. Je to podmínka toho, aby se dítě cítilo v bezpečí — a teprve pak mělo kapacitu zkoušet nové věci.</p>
+      </div>
+
+      <div class="adapt-grid">
+        <div class="adapt-item">
+          <h3>Prostor na všechny emoce</h3>
+          <p>Vztek, smutek i únava patří do dne. Neposíláme děti „se uklidnit stranou" — pomáháme jim emoci pojmenovat a projít.</p>
+        </div>
+        <div class="adapt-item">
+          <h3>Předvídatelný rytmus</h3>
+          <p>Stejné rituály každý den. Dítě ví, co přijde — a to mu uvolní hlavu na zkoumání, tvorbu a vztahy.</p>
+        </div>
+        <div class="adapt-item">
+          <h3>Každé dítě svým tempem</h3>
+          <p>Nesrovnáváme děti mezi sebou. Sledujeme, kam se posunulo každé z nich oproti sobě samému.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PROSTORY -->
-  <section class="section section--cream">
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Prostory</span>
@@ -213,14 +248,15 @@
 
       <div class="photo-pair">
         <figure>
-          <img src="images/little-flow-trida.jpg" alt="Vizualizace třídy Little FLOW — kulaté stolky, knihovna, velká okna" loading="lazy">
-          <figcaption>Třída Little FLOW — vizualizace</figcaption>
+          <img src="images/little-flow-trida.jpg" alt="Třída Little FLOW — kulaté stolky, knihovna, velká okna" loading="lazy">
+          <figcaption>Třída Little FLOW</figcaption>
         </figure>
         <figure>
-          <img src="images/little-flow-trida-2.jpg" alt="Vizualizace herny Little FLOW — kuchyňka a stolky" loading="lazy">
-          <figcaption>Herna a kuchyňka — vizualizace</figcaption>
+          <img src="images/little-flow-trida-2.jpg" alt="Herna Little FLOW — kuchyňka a stolky" loading="lazy">
+          <figcaption>Herna a kuchyňka</figcaption>
         </figure>
       </div>
+      <p class="fee-note" style="margin-top: var(--space-lg);">Nejlíp je uvidíte naživo — každý čtvrtek na <a href="navsteva">Experience Morningu</a>.</p>
     </div>
   </section>
 
@@ -229,17 +265,17 @@
     <span class="related-links__label">Pokračujte</span>
     <a href="jak-ucime">Jak učíme →</a>
     <a href="skolne">Školné →</a>
-    <a href="kontakt">Kontakt →</a>
+    <a href="navsteva">Návštěva →</a>
   </div>
 
   <!-- CTA — kompaktní, bez formuláře -->
   <section class="section cta-section cta-section--compact">
     <div class="container--narrow">
-      <span class="eyebrow eyebrow--on-dark">Zbývá omezený počet míst</span>
+      <span class="eyebrow eyebrow--on-dark">Přijímáme průběžně · kapacita omezená</span>
       <h2 class="h-section">Chcete vidět <em>den naživo</em>?</h2>
-      <p class="lead">Sjednejte si schůzku — projdeme školku, poznáte tým a probereme adaptaci vašeho dítěte.</p>
+      <p class="lead">Přijďte ve čtvrtek na Experience Morning — projdete si školku, poznáte učitelky a uvidíte běžné ráno.</p>
       <div class="hero-a__ctas">
-        <a href="prijimani#form" class="btn btn-primary">Sjednat schůzku →</a>
+        <a href="navsteva#form" class="btn btn-primary">Přijďte na návštěvu →</a>
       </div>
     </div>
   </section>
@@ -263,7 +299,7 @@
         <a href="jak-ucime" class="site-footer__link">Jak učíme</a>
         <a href="den-ve-skolce" class="site-footer__link">Den ve školce</a>
         <a href="skolne" class="site-footer__link">Školné</a>
-        <a href="prijimani" class="site-footer__link">Přijímání</a>
+        <a href="navsteva" class="site-footer__link">Návštěva</a>
         <a href="kontakt" class="site-footer__link">Kontakt</a>
         <a href="gdpr" class="site-footer__link">GDPR</a>
         <a href="https://www.skolaflow.cz/" class="site-footer__link" target="_blank" rel="noopener">ZŠ FLOW ↗</a>
@@ -272,6 +308,7 @@
         <p class="site-footer__heading">Kampus</p>
         <p>Českomoravská 1a<br>190 00 Praha 9 — Balabenka</p>
         <p class="site-footer__small" style="margin-top:14px;">Tramvaj Balabenka · 1 min pěšky<br>Metro B Českomoravská · 10 min pěšky</p>
+        <p class="site-footer__small" style="margin-top:14px;"><strong style="color:var(--c-yellow);">Experience Morning</strong><br>každý čtvrtek · 8:30 — 10:30</p>
       </div>
       <div>
         <p class="site-footer__heading">Dejte nám vědět</p>
@@ -292,7 +329,7 @@
         IČO: 22440011<br>
         Sídlo: Čechova 632/15, Praha&nbsp;7</p>
       </div>
-      <a href="prijimani#form" class="btn btn-primary site-footer__cta">Sjednat schůzku →</a>
+      <a href="navsteva#form" class="btn btn-primary site-footer__cta">Přijďte na návštěvu →</a>
     </div>
 
     <p class="site-footer__eu-text">Little FLOW je součástí rodiny FLOW — Founders’ School.</p>

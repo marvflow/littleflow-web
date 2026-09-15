@@ -1,15 +1,21 @@
-# Cloudflare Pages — clean URLs (.html → bez přípony), 301
-/index.html            /            301
-/en/index.html         /en/         301
-/jak-ucime.html        /jak-ucime   301
+# Cloudflare Pages — clean URLs (.html -> bez pripony), 301
+/index.html            /              301
+/en/index.html         /en/           301
+/jak-ucime.html        /jak-ucime     301
 /den-ve-skolce.html    /den-ve-skolce 301
-/skolne.html           /skolne      301
-/prijimani.html        /prijimani   301
-/kontakt.html          /kontakt     301
-/gdpr.html             /gdpr        301
-/en/jak-ucime.html     /en/jak-ucime   301
+/skolne.html           /skolne        301
+/navsteva.html         /navsteva      301
+/kontakt.html          /kontakt       301
+/gdpr.html             /gdpr          301
+/en/jak-ucime.html     /en/jak-ucime     301
 /en/den-ve-skolce.html /en/den-ve-skolce 301
-/en/skolne.html        /en/skolne      301
-/en/prijimani.html     /en/prijimani   301
-/en/kontakt.html       /en/kontakt     301
-/en/gdpr.html          /en/gdpr        301
+/en/skolne.html        /en/skolne        301
+/en/navsteva.html      /en/navsteva      301
+/en/kontakt.html       /en/kontakt       301
+/en/gdpr.html          /en/gdpr          301
+
+# stary slug -> novy (prijimani se 15. 9. 2026 prejmenovalo na navsteva)
+/prijimani             /navsteva      301
+/prijimani.html        /navsteva      301
+/en/prijimani          /en/navsteva   301
+/en/prijimani.html     /en/navsteva   301

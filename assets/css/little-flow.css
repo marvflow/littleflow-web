@@ -322,3 +322,202 @@
 /* ───── 404 */
 .nf { min-height: 60vh; display: grid; place-items: center; text-align: center; padding: var(--space-2xl) 0; }
 .nf__code { font-family: var(--font-display); font-weight: 800; font-size: 6rem; color: var(--c-yellow); line-height: 1; letter-spacing: -0.04em; }
+
+/* ============================================================
+   PŘIDÁNO 15. 9. 2026 — Experience Morning, jazyky, Founding Family Rate
+   ============================================================ */
+
+/* ───── VISIT BAR — pruh pod hero, Experience Morning na každé stránce */
+.visit-bar {
+  background: var(--c-white);
+  border-bottom: 1.5px solid rgba(20, 37, 107, 0.12);
+}
+.visit-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 14px 20px;
+  flex-wrap: wrap;
+  padding-block: 18px;
+}
+.visit-bar__label {
+  flex: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-blue-deep);
+  padding: 6px 14px;
+  border: 2px solid var(--c-yellow);
+  border-radius: var(--r-pill);
+}
+.visit-bar__text { margin: 0; flex: 1 1 320px; color: var(--c-muted); font-size: var(--fs-sm); line-height: 1.55; }
+.visit-bar__text strong { color: var(--c-blue-deep); font-weight: 800; }
+.visit-bar__link {
+  flex: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-sm);
+  color: var(--c-blue-deep);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 3px solid var(--c-yellow);
+  transition: background var(--t);
+}
+.visit-bar__link:hover { background: var(--c-yellow-soft); }
+
+/* ───── JAZYKOVÉ PROSTŘEDÍ — editorial 3 sloupce */
+.lang-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1.5px solid rgba(20, 37, 107, 0.14); }
+.lang-item { padding: 30px 26px 26px; border-right: 1.5px solid rgba(20, 37, 107, 0.14); }
+.lang-item:last-child { border-right: none; }
+.lang-item__label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-blue);
+  padding-bottom: 4px;
+  border-bottom: 3px solid var(--c-yellow);
+  margin-bottom: 14px;
+}
+.lang-item h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--c-blue-deep); margin: 0 0 10px; line-height: 1.2; }
+.lang-item p { color: var(--c-muted); font-size: var(--fs-sm); line-height: 1.65; margin: 0; }
+@media (max-width: 880px) {
+  .lang-grid { grid-template-columns: 1fr; }
+  .lang-item { border-right: none; border-bottom: 1.5px solid rgba(20, 37, 107, 0.14); }
+  .lang-item:last-child { border-bottom: none; }
+}
+
+/* ───── NÁVŠTĚVA — Experience Morning + Káva s vedením */
+.visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); align-items: start; }
+.visit-card {
+  background: var(--c-white);
+  border: 2px solid var(--c-blue-deep);
+  border-radius: var(--r-card);
+  padding: 32px 30px 28px;
+  box-shadow: var(--sh-hard);
+  display: flex;
+  flex-direction: column;
+}
+.visit-card--primary { box-shadow: var(--sh-hard-yellow), 0 0 0 2px var(--c-blue-deep); }
+.visit-card__when {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-blue-deep);
+  background: var(--c-yellow);
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  margin-bottom: 16px;
+}
+.visit-card h3 { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-xl); color: var(--c-blue-deep); margin: 0 0 12px; line-height: 1.15; }
+.visit-card > p { color: var(--c-muted); font-size: var(--fs-md); line-height: 1.6; margin: 0 0 var(--space-md); }
+.visit-card__list { list-style: none; padding: 0; margin: 0 0 var(--space-md); }
+.visit-card__list li {
+  position: relative;
+  padding: 9px 0 9px 26px;
+  border-top: 1px solid rgba(20, 37, 107, 0.08);
+  color: var(--c-blue-deep);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+.visit-card__list li::before { content: "✓"; position: absolute; left: 0; top: 9px; color: var(--c-yellow); font-weight: 800; }
+.visit-card .btn { align-self: flex-start; margin-top: auto; }
+@media (max-width: 880px) { .visit-grid { grid-template-columns: 1fr; } }
+
+/* ───── FOUNDING FAMILY RATE — hlavní cenová zpráva (navy karta) */
+.founding {
+  background: var(--c-blue-deep);
+  color: var(--c-white);
+  border-radius: var(--r-card);
+  padding: 56px 48px 52px;
+  text-align: center;
+  box-shadow: var(--sh-hard-yellow);
+}
+.founding__eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-blue-deep);
+  background: var(--c-yellow);
+  padding: 7px 18px;
+  border-radius: var(--r-pill);
+  margin-bottom: var(--space-md);
+}
+.founding__h { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-2xl); line-height: 1.1; margin: 0 0 var(--space-sm); color: var(--c-white); }
+.founding__h em { font-style: normal; color: var(--c-yellow); }
+.founding__lead { color: rgba(255, 255, 255, 0.82); font-size: var(--fs-md); line-height: 1.6; max-width: 620px; margin: 0 auto var(--space-xl); }
+.founding__rates { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); max-width: 760px; margin: 0 auto; }
+.founding__rate {
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--r-card);
+  padding: 26px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.founding__rate-label { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); }
+.founding__rate-price { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 3.4vw, 2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--c-yellow); }
+.founding__rate-per { display: block; font-size: var(--fs-sm); font-weight: 600; letter-spacing: 0; color: rgba(255, 255, 255, 0.7); margin-top: 4px; }
+.founding__rate-note { font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.72); }
+.founding__rate-note--in { color: var(--c-white); font-weight: 700; }
+.founding__rate-note--in::before { content: "✓ "; color: var(--c-yellow); font-weight: 800; }
+.founding__cta { margin: var(--space-xl) 0 0; }
+@media (max-width: 720px) {
+  .founding { padding: 40px 24px 36px; }
+  .founding__rates { grid-template-columns: 1fr; }
+}
+
+/* ───── FOUNDING BANNER — highlight na stránce Školné */
+.lf-founding-banner {
+  margin: var(--space-xl) auto 0;
+  max-width: 860px;
+  background: linear-gradient(135deg, var(--c-yellow) 0%, #ffe89a 100%);
+  border: 2px solid var(--c-blue-deep);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-hard);
+  padding: 26px 30px 24px;
+  text-align: center;
+}
+.lf-founding-banner__label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-blue-deep);
+  border-bottom: 3px solid var(--c-blue-deep);
+  padding-bottom: 3px;
+  margin-bottom: 12px;
+}
+.lf-founding-banner p { margin: 0; color: var(--c-blue-deep); font-size: var(--fs-md); line-height: 1.6; font-weight: 600; }
+
+/* Founding karty v ceníku — badge se vejde i vlevo nahoře */
+.fee-card__badge { right: auto; left: 24px; }
+
+/* Kdo vede Kávu s vedením — zobrazí se jen když je jméno doplněné */
+.visit-card__who {
+  margin: calc(var(--space-md) * -0.5) 0 var(--space-md);
+  font-size: var(--fs-sm);
+  color: var(--c-blue-deep);
+  font-weight: 700;
+}
+.visit-card__who span {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-blue);
+  margin-right: 6px;
+}

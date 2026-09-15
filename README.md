@@ -10,7 +10,7 @@ index.html            Domů
 jak-ucime.html        Jak učíme (6 pilířů + příklad projektu)
 den-ve-skolce.html    Den ve školce (denní program + prostory)
 skolne.html           Školné (ceník + co je zahrnuto)
-prijimani.html        Přijímání (3 kroky + adaptace + formulář)
+navsteva.html         Návštěva — Experience Morning, Káva s vedením, přijímání, adaptace, formulář
 kontakt.html          Kontakt (adresa, doprava, mapa, formulář)
 gdpr.html             Zásady GDPR
 404.html              Stránka nenalezena (Cloudflare Pages ji servíruje automaticky)
@@ -47,10 +47,14 @@ Všechny formuláře posílají na stejný Apps Script endpoint jako skolaflow.c
 `source=little-flow-form` (+ `lang`, `page`). Leady padají do tabu **Registrace** ve sdíleném Sheetu,
 sloupec Zdroj = `little-flow-form`. Backend není potřeba měnit.
 
-## Den otevřených dveří v hero
+## Fakta na jednom místě
 
-Řádek „Nejbližší den otevřených dveří" (Domů, Přijímání, Kontakt) se plní z **Eventy** sheetu
-(řádek `type=ms-od`, `active≠FALSE`, nejbližší budoucí datum). Bez aktivního termínu je skrytý.
+Experience Morning (den + čas), Káva s vedením, jméno vedení a **Founding Family Rate**
+jsou konstanty v hlavičce `build/common.py`. Změna ceny nebo termínu = jeden řádek + rebuild,
+propíše se do všech stránek, titulků i meta popisků.
+
+Den otevřených dveří z Eventy sheetu se už nepoužívá — nahradil ho pevný týdenní
+Experience Morning (pruh pod hero na každé stránce).
 
 ## Měření
 
