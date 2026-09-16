@@ -307,7 +307,7 @@
 }
 
 /* ───── FINÁLNÍ CTA (cream + žluté podtržení, formulář nebo jen tlačítko) */
-.cta-section { padding: 100px 0 120px; text-align: center; background: var(--c-cream); position: relative; scroll-margin-top: 80px; }
+.cta-section { padding: 100px 0 120px; text-align: center; background: var(--c-cream); position: relative; scroll-margin-top: 116px; }
 .cta-section .container--narrow { max-width: 760px; }
 .cta-section h2 { color: var(--c-blue-deep); margin-bottom: var(--space-md); font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.05; }
 .cta-section h2 em { font-style: normal; color: var(--c-blue-deep); position: relative; display: inline-block; }
@@ -584,7 +584,7 @@
 }
 
 /* ───── UX: kotvy se nesmí schovat pod sticky hlavičku */
-#visit, #tym, #form { scroll-margin-top: 92px; }
+#visit, #tym, #form { scroll-margin-top: 116px; }
 
 /* ───── UX: celý pruh Experience Morning je klikací */
 .visit-bar__inner { position: relative; }
@@ -668,13 +668,14 @@
 .visit-bar__row .visit-bar__link { margin-left: auto; }
 .visit-bar__row .visit-bar__link::after { content: none; }
 
-#experience-morning, #kava { scroll-margin-top: 92px; }
+#experience-morning, #kava { scroll-margin-top: 116px; }
 
-/* ───── LOGO Little Flow (vektorizované z originálu 16. 9. 2026) */
-.lf-brand .lf-logo { height: 52px; width: auto; display: block; }
-.lf-brand .lf-logo--footer { height: 64px; }
-.lf-brand { align-items: center; gap: 14px; }
-.lf-brand__sub { align-self: center; margin-left: 0; }
+/* ───── LOGO Little Flow (16. 9. 2026) — bez podtitulu, vyrazna velikost */
+.lf-brand { align-items: center; gap: 0; }
+.lf-brand .lf-logo { height: 84px; width: auto; display: block; }
+.lf-brand .lf-logo--footer { height: 108px; }
 /* dvouradkove logo potrebuje vysku — hlavicku proto zuzime, ať nenaroste */
-.site-header__inner { padding-block: 12px; }
-@media (max-width: 880px) { .lf-brand .lf-logo { height: 40px; } .lf-brand .lf-logo--footer { height: 52px; } }
+.site-header__inner { padding-block: 10px; }
+@media (max-width: 1180px) { .lf-brand .lf-logo { height: 72px; } }
+@media (max-width: 880px)  { .lf-brand .lf-logo { height: 60px; } .lf-brand .lf-logo--footer { height: 84px; } }
+@media (max-width: 480px)  { .lf-brand .lf-logo { height: 52px; } .lf-brand .lf-logo--footer { height: 68px; } }
