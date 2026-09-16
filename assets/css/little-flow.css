@@ -521,3 +521,47 @@
   color: var(--c-blue);
   margin-right: 6px;
 }
+
+/* ───── TÝM — reálné učitelky (foto + jméno + role) */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 260px));
+  gap: var(--space-xl);
+  justify-content: center;
+}
+.team-card { margin: 0; text-align: center; }
+.team-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--c-blue-deep);
+  box-shadow: 6px 6px 0 0 var(--c-yellow);
+  background: var(--c-white);
+  display: block;
+}
+.team-card figcaption { margin-top: var(--space-md); }
+.team-card__name {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--c-blue-deep);
+  line-height: 1.2;
+}
+.team-card__role {
+  display: inline-block;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-blue);
+  padding-bottom: 3px;
+  border-bottom: 3px solid var(--c-yellow);
+}
+@media (max-width: 560px) {
+  .team-grid { grid-template-columns: minmax(0, 220px); gap: var(--space-lg); }
+}
