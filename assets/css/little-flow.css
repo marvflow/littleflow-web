@@ -30,7 +30,6 @@
 .lf-brand__sub { white-space: nowrap; }
 @media (max-width: 1180px) { .lf-brand__sub { display: none; } }
 .site-footer__cols .site-footer__link { display: block; width: fit-content; }
-.site-nav__link[aria-current="page"] { background: rgba(255, 255, 255, 0.1); color: var(--c-white); }
 
 /* ───── Hero — textová varianta bez fotky */
 .hero-a--text .hero-a__grid { grid-template-columns: 1fr; max-width: 820px; }
@@ -307,7 +306,7 @@
 }
 
 /* ───── FINÁLNÍ CTA (cream + žluté podtržení, formulář nebo jen tlačítko) */
-.cta-section { padding: 100px 0 120px; text-align: center; background: var(--c-cream); position: relative; scroll-margin-top: 80px; }
+.cta-section { padding: 100px 0 120px; text-align: center; background: var(--c-cream); position: relative; scroll-margin-top: 100px; }
 .cta-section .container--narrow { max-width: 760px; }
 .cta-section h2 { color: var(--c-blue-deep); margin-bottom: var(--space-md); font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.05; }
 .cta-section h2 em { font-style: normal; color: var(--c-blue-deep); position: relative; display: inline-block; }
@@ -584,7 +583,7 @@
 }
 
 /* ───── UX: kotvy se nesmí schovat pod sticky hlavičku */
-#visit, #tym, #form { scroll-margin-top: 80px; }
+#visit, #tym, #form { scroll-margin-top: 100px; }
 
 /* ───── UX: celý pruh Experience Morning je klikací */
 .visit-bar__inner { position: relative; }
@@ -668,14 +667,54 @@
 .visit-bar__row .visit-bar__link { margin-left: auto; }
 .visit-bar__row .visit-bar__link::after { content: none; }
 
-#experience-morning, #kava { scroll-margin-top: 80px; }
+#experience-morning, #kava { scroll-margin-top: 100px; }
 
 /* ───── LOGO Little Flow (16. 9. 2026) — bez podtitulu */
 .lf-brand { align-items: center; gap: 0; }
 .lf-brand .lf-logo { height: 44px; width: auto; display: block; }
 .lf-brand .lf-logo--footer { height: 52px; }
-/* dvouradkove logo potrebuje vysku — hlavicku proto zuzime, ať nenaroste */
-.site-header__inner { padding-block: 10px; }
+/* ───── HLAVNI MENU — editorial varianta C (16. 9. 2026)
+   Bez pilulek: odkaz podtrhne zluta linka pri hoveru, aktivni stranka ji ma natrvalo.
+   Jediny plny prvek v hlavicce je CTA. */
+.site-header__inner { padding-block: 20px; }
+.site-header { box-shadow: none; }
+.site-nav { gap: 6px; }
+.site-nav .site-nav__link {
+  position: relative;
+  margin-inline: 14px;
+  padding: 6px 2px;
+  border-radius: 0;
+  background: none;
+  color: var(--c-white);
+  font-size: 0.95rem;
+}
+.site-nav .site-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 3px;
+  background: var(--c-yellow);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+.site-nav .site-nav__link:hover,
+.site-nav .site-nav__link:focus-visible { background: none; color: var(--c-white); }
+.site-nav .site-nav__link:hover::after,
+.site-nav .site-nav__link:focus-visible::after,
+.site-nav .site-nav__link[aria-current="page"]::after { transform: scaleX(1); }
+/* prepinac jazyka je vedlejsi — ztlumit */
+.site-nav .site-nav__link[lang="en"],
+.site-nav .site-nav__link[lang="cs"] { opacity: 0.65; font-size: 0.82rem; letter-spacing: 0.08em; }
+.site-nav .site-nav__link[lang="en"]:hover,
+.site-nav .site-nav__link[lang="cs"]:hover { opacity: 1; }
+/* hlavni akce dostane vlastni prostor */
+.site-nav .site-nav__cta { margin-left: 30px; }
+@media (prefers-reduced-motion: reduce) { .site-nav .site-nav__link::after { transition: none; } }
+@media (max-width: 1180px) { .site-nav .site-nav__link { margin-inline: 9px; } }
+
+/* dvouradkove logo potrebuje vysku */
 @media (max-width: 880px) { .lf-brand .lf-logo { height: 38px; } .lf-brand .lf-logo--footer { height: 44px; } }
 
 /* Hlavicka i paticka na stejnou mrizku jako obsah stranky (.container = 1180px) */
