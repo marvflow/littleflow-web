@@ -25,8 +25,8 @@ def apply(path, lang):
     foot = load(f"footer-{lang}.html").replace("{{SLUG}}", "" if slug == "index" else slug)
     # aria-current pro aktivní stránku
     nav = nav.replace(f'href="{slug}" class="site-nav__link"', f'href="{slug}" class="site-nav__link" aria-current="page"')
-    # CTA odkaz: na stránkách s formulářem #form, jinde prijimani#form
-    cta = "#form" if slug in ("index", "prijimani", "kontakt") else "prijimani#form"
+    # CTA odkaz: na stránkách s formulářem #form, jinde navsteva#form
+    cta = "#form" if slug in ("index", "navsteva", "kontakt") else "navsteva#form"
     nav = nav.replace("{{CTA}}", cta)
     foot = foot.replace("{{CTA}}", cta)
     with open(path, encoding="utf-8") as f:

@@ -14,7 +14,7 @@
   color: var(--c-yellow);
   line-height: 1;
 }
-.lf-brand img { height: 30px; width: auto; align-self: center; }
+/* .lf-brand img — nahrazeno .lf-brand .lf-logo (samostatne logo Little Flow) */
 .lf-brand__sub {
   font-family: var(--font-display);
   font-weight: 600;
@@ -669,3 +669,12 @@
 .visit-bar__row .visit-bar__link::after { content: none; }
 
 #experience-morning, #kava { scroll-margin-top: 92px; }
+
+/* ───── LOGO Little Flow (vektorizované z originálu 16. 9. 2026) */
+.lf-brand .lf-logo { height: 52px; width: auto; display: block; }
+.lf-brand .lf-logo--footer { height: 64px; }
+.lf-brand { align-items: center; gap: 14px; }
+.lf-brand__sub { align-self: center; margin-left: 0; }
+/* dvouradkove logo potrebuje vysku — hlavicku proto zuzime, ať nenaroste */
+.site-header__inner { padding-block: 12px; }
+@media (max-width: 880px) { .lf-brand .lf-logo { height: 40px; } .lf-brand .lf-logo--footer { height: 52px; } }
