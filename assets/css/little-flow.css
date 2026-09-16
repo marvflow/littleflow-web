@@ -594,3 +594,78 @@
   .visit-bar__inner { gap: 8px 14px; }
   .visit-bar__link { margin-left: auto; }
 }
+
+/* ───── NABÍDKY NÁVŠTĚVY — dvě karty hned pod hero (16. 9. 2026) */
+.visit-offers { background: var(--c-white); padding: var(--space-xl) 0 var(--space-lg); }
+.visit-offers__eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-blue);
+  margin-bottom: var(--space-md);
+}
+.visit-offers__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+.offer {
+  background: var(--c-white);
+  border: 2px solid var(--c-blue-deep);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-hard);
+  padding: 28px 30px 26px;
+  display: flex;
+  flex-direction: column;
+}
+.offer--primary { box-shadow: var(--sh-hard-yellow), 0 0 0 2px var(--c-blue-deep); }
+.offer__h {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xl);
+  color: var(--c-blue-deep);
+  margin: 0 0 6px;
+  line-height: 1.15;
+}
+.offer__when {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-sm);
+  color: var(--c-blue-deep);
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--c-yellow);
+  padding: 5px 13px;
+  border-radius: var(--r-pill);
+}
+.offer__p { margin: 0 0 var(--space-md); color: var(--c-muted); font-size: var(--fs-md); line-height: 1.6; }
+.offer__links { margin: auto 0 0; }
+@media (max-width: 880px) { .visit-offers__grid { grid-template-columns: 1fr; } }
+
+/* ───── PRUH — obě nabídky na podstránkách */
+.visit-bar__row {
+  display: flex;
+  align-items: center;
+  gap: 10px 26px;
+  flex-wrap: wrap;
+  padding-block: 16px;
+}
+.visit-bar__item { text-decoration: none; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.visit-bar__item .visit-bar__label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-blue-deep);
+  padding: 5px 12px;
+  border: 2px solid var(--c-yellow);
+  border-radius: var(--r-pill);
+}
+.visit-bar__when { font-size: var(--fs-sm); color: var(--c-muted); font-weight: 600; }
+.visit-bar__item:hover .visit-bar__label { background: var(--c-yellow); }
+.visit-bar__row .visit-bar__link { margin-left: auto; }
+.visit-bar__row .visit-bar__link::after { content: none; }
+
+#experience-morning, #kava { scroll-margin-top: 92px; }
