@@ -522,17 +522,19 @@
   margin-right: 6px;
 }
 
-/* ───── TÝM — reálné učitelky (foto + jméno + role) */
+/* ───── LIDÉ — foto / monogram + jméno + role */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 260px));
-  gap: var(--space-xl);
-  justify-content: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg) var(--space-md);
+  max-width: 880px;
+  margin: 0 auto;
 }
 .team-card { margin: 0; text-align: center; }
-.team-card img {
+.team-card img,
+.team-card__initials {
   width: 100%;
-  height: auto;
+  max-width: 210px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
@@ -540,13 +542,26 @@
   box-shadow: 6px 6px 0 0 var(--c-yellow);
   background: var(--c-white);
   display: block;
+  margin-inline: auto;
 }
+.team-card__initials {
+  display: grid;
+  place-items: center;
+  background: var(--c-blue-deep);
+  color: var(--c-yellow);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+}
+.team-card--lead img,
+.team-card--lead .team-card__initials { border-width: 4px; }
 .team-card figcaption { margin-top: var(--space-md); }
 .team-card__name {
   display: block;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--c-blue-deep);
   line-height: 1.2;
 }
@@ -562,6 +577,20 @@
   padding-bottom: 3px;
   border-bottom: 3px solid var(--c-yellow);
 }
-@media (max-width: 560px) {
-  .team-grid { grid-template-columns: minmax(0, 220px); gap: var(--space-lg); }
+@media (max-width: 720px) {
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 420px; }
+  .team-card--lead { grid-column: 1 / -1; }
+  .team-card img, .team-card__initials { max-width: 170px; }
+}
+
+/* ───── UX: kotvy se nesmí schovat pod sticky hlavičku */
+#visit, #tym, #form { scroll-margin-top: 92px; }
+
+/* ───── UX: celý pruh Experience Morning je klikací */
+.visit-bar__inner { position: relative; }
+.visit-bar__link::after { content: ""; position: absolute; inset: 0; }
+.visit-bar:hover { background: var(--c-cream); }
+@media (max-width: 720px) {
+  .visit-bar__inner { gap: 8px 14px; }
+  .visit-bar__link { margin-left: auto; }
 }
