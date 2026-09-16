@@ -307,7 +307,7 @@
 }
 
 /* ───── FINÁLNÍ CTA (cream + žluté podtržení, formulář nebo jen tlačítko) */
-.cta-section { padding: 100px 0 120px; text-align: center; background: var(--c-cream); position: relative; scroll-margin-top: 116px; }
+.cta-section { padding: 100px 0 120px; text-align: center; background: var(--c-cream); position: relative; scroll-margin-top: 96px; }
 .cta-section .container--narrow { max-width: 760px; }
 .cta-section h2 { color: var(--c-blue-deep); margin-bottom: var(--space-md); font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.05; }
 .cta-section h2 em { font-style: normal; color: var(--c-blue-deep); position: relative; display: inline-block; }
@@ -584,7 +584,7 @@
 }
 
 /* ───── UX: kotvy se nesmí schovat pod sticky hlavičku */
-#visit, #tym, #form { scroll-margin-top: 116px; }
+#visit, #tym, #form { scroll-margin-top: 96px; }
 
 /* ───── UX: celý pruh Experience Morning je klikací */
 .visit-bar__inner { position: relative; }
@@ -668,14 +668,32 @@
 .visit-bar__row .visit-bar__link { margin-left: auto; }
 .visit-bar__row .visit-bar__link::after { content: none; }
 
-#experience-morning, #kava { scroll-margin-top: 116px; }
+#experience-morning, #kava { scroll-margin-top: 96px; }
 
-/* ───── LOGO Little Flow (16. 9. 2026) — bez podtitulu, vyrazna velikost */
+/* ───── LOGO Little Flow (16. 9. 2026) — bez podtitulu */
 .lf-brand { align-items: center; gap: 0; }
-.lf-brand .lf-logo { height: 84px; width: auto; display: block; }
-.lf-brand .lf-logo--footer { height: 108px; }
+.lf-brand .lf-logo { height: 62px; width: auto; display: block; }
+.lf-brand .lf-logo--footer { height: 72px; }
 /* dvouradkove logo potrebuje vysku — hlavicku proto zuzime, ať nenaroste */
 .site-header__inner { padding-block: 10px; }
-@media (max-width: 1180px) { .lf-brand .lf-logo { height: 72px; } }
-@media (max-width: 880px)  { .lf-brand .lf-logo { height: 60px; } .lf-brand .lf-logo--footer { height: 84px; } }
-@media (max-width: 480px)  { .lf-brand .lf-logo { height: 52px; } .lf-brand .lf-logo--footer { height: 68px; } }
+@media (max-width: 880px) { .lf-brand .lf-logo { height: 52px; } .lf-brand .lf-logo--footer { height: 60px; } }
+
+/* Hlavicka i paticka na stejnou mrizku jako obsah stranky (.container = 1180px) */
+.site-header__inner,
+.site-footer__inner { width: min(var(--container), 92%); }
+
+/* Paticka: logo vlevo, CTA vpravo na stejne radce */
+.lf-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.lf-footer-top .site-footer__cta { align-self: center; margin: 0; }
+@media (min-width: 881px) { .site-footer__cols { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 880px) {
+  .site-footer__cols { grid-template-columns: 1fr 1fr; }
+  .lf-footer-top { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
+  .lf-footer-top .site-footer__cta { align-self: flex-start; }
+}
