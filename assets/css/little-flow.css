@@ -842,3 +842,43 @@
   .week-row__day { padding-top: 0; }
 }
 .founding__lead--sub { font-size: var(--fs-sm); opacity: 0.8; margin-top: -6px; }
+
+/* ───── Ceník: původní cena a sleva pro zakládající rodiny */
+.fee-was {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: var(--fs-md);
+}
+.fee-was s { color: var(--c-muted); text-decoration-thickness: 2px; text-decoration-color: rgba(20,37,107,.45); }
+.fee-card--featured .fee-was s { color: rgba(255,255,255,.62); text-decoration-color: rgba(255,255,255,.5); }
+.fee-save {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--c-yellow);
+  color: var(--c-blue-deep);
+}
+.fee-card--featured .fee-save { background: var(--c-yellow); color: var(--c-blue-deep); }
+.fee-tiers__price { display: inline-flex; align-items: center; gap: 8px; }
+.fee-tiers__price s { font-weight: 400; opacity: 0.7; text-decoration-thickness: 1.5px; }
+.fee-tiers li .fee-save { font-size: 0.7rem; padding: 2px 8px; }
+.fee-was-note {
+  max-width: 760px;
+  margin: var(--space-lg) auto 0;
+  text-align: center;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--c-muted);
+}
+.fee-was-note strong { color: var(--c-blue-deep); }
+@media (max-width: 480px) {
+  .fee-tiers li { flex-wrap: wrap; }
+  .fee-tiers__price { gap: 6px; }
+}
