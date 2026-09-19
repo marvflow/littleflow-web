@@ -882,3 +882,8 @@
   .fee-tiers li { flex-wrap: wrap; }
   .fee-tiers__price { gap: 6px; }
 }
+
+/* Nadpisy pilířů drží stejnou výšku, aby linky i texty seděly na jedné lince
+   i když se delší nadpis (nebo anglická verze) zalomí na dva řádky. */
+.lf-pillar h3 { min-height: calc(2 * 1.18em + 12px); display: flex; align-items: flex-start; }
+@media (max-width: 620px) { .lf-pillar h3 { min-height: 0; display: block; } }
