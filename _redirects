@@ -4,18 +4,31 @@
 /jak-ucime.html        /jak-ucime     301
 /den-ve-skolce.html    /den-ve-skolce 301
 /skolne.html           /skolne        301
-/navsteva.html         /navsteva      301
 /kontakt.html          /kontakt       301
+/propojeni-skolky-a-skoly.html /propojeni-skolky-a-skoly 301
+/tydenni-rytmus.html   /tydenni-rytmus 301
+/pokrok-ditete.html    /pokrok-ditete  301
+/predskolak.html       /predskolak     301
+/za-dvermi-tridy.html  /za-dvermi-tridy 301
 /gdpr.html             /gdpr          301
 /en/jak-ucime.html     /en/jak-ucime     301
 /en/den-ve-skolce.html /en/den-ve-skolce 301
 /en/skolne.html        /en/skolne        301
-/en/navsteva.html      /en/navsteva      301
 /en/kontakt.html       /en/kontakt       301
+/en/propojeni-skolky-a-skoly.html /en/propojeni-skolky-a-skoly 301
+/en/tydenni-rytmus.html /en/tydenni-rytmus 301
+/en/pokrok-ditete.html /en/pokrok-ditete  301
+/en/predskolak.html    /en/predskolak     301
+/en/za-dvermi-tridy.html /en/za-dvermi-tridy 301
 /en/gdpr.html          /en/gdpr          301
 
-# stary slug -> novy (prijimani se 15. 9. 2026 prejmenovalo na navsteva)
-/prijimani             /navsteva      301
-/prijimani.html        /navsteva      301
-/en/prijimani          /en/navsteva   301
-/en/prijimani.html     /en/navsteva   301
+# zrusene stranky -> homepage (19. 9. 2026: /navsteva se slucuje s HP,
+# obsah nabidek navstev zije v sekci #visit na homepage)
+/navsteva              /#visit        301
+/navsteva.html         /#visit        301
+/en/navsteva           /en/#visit     301
+/en/navsteva.html      /en/#visit     301
+/prijimani             /#visit        301
+/prijimani.html        /#visit        301
+/en/prijimani          /en/#visit     301
+/en/prijimani.html     /en/#visit     301

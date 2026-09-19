@@ -69,7 +69,7 @@
 @media (max-width: 620px) { .lf-pillars-grid { grid-template-columns: 1fr; } }
 
 /* ───── DEN — 5 bloků (HP) */
-.day-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-sm); }
+.day-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); }
 .day-block {
   background: var(--c-white);
   border: 1.5px solid var(--c-border);
@@ -736,3 +736,109 @@
   .lf-footer-top { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
   .lf-footer-top .site-footer__cta { align-self: flex-start; }
 }
+
+/* ───── Doplňky z připomínek ředitelky (19. 9. 2026) */
+.day-grid__note {
+  margin: var(--space-lg) auto 0;
+  max-width: 720px;
+  text-align: center;
+  color: var(--c-muted);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+}
+.team-card__bio {
+  display: block;
+  margin-top: 8px;
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--c-muted);
+  font-weight: 400;
+}
+/* ───── Ceník: varianty 3/4/5 dní pod hlavní cenou */
+.fee-tiers {
+  list-style: none;
+  margin: 0 0 var(--space-md);
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(20, 37, 107, 0.14);
+}
+.fee-tiers li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  padding: 5px 0;
+  color: var(--c-muted);
+}
+.fee-tiers li span:last-child { font-weight: 700; color: var(--c-blue-deep); white-space: nowrap; }
+.fee-card--featured .fee-tiers { border-top-color: rgba(255, 255, 255, 0.24); }
+.fee-card--featured .fee-tiers li { color: rgba(255, 255, 255, 0.72); }
+.fee-card--featured .fee-tiers li span:last-child { color: var(--c-yellow); }
+
+/* ───── Callout — zvýrazněná poznámka pod obsahem */
+.lf-callout {
+  margin-top: var(--space-xl);
+  padding: 26px 30px;
+  background: var(--c-cream);
+  border-left: 4px solid var(--c-yellow);
+  border-radius: 8px;
+}
+.lf-callout h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--c-blue-deep);
+  margin: 0 0 8px;
+}
+.lf-callout p { margin: 0; color: var(--c-muted); font-size: var(--fs-md); line-height: 1.65; }
+.lf-callout--strong { background: var(--c-blue-deep); border-left-color: var(--c-yellow); }
+.lf-callout--strong h3 { color: var(--c-yellow); }
+.lf-callout--strong p { color: rgba(255, 255, 255, 0.82); }
+
+/* ───── Za dveřmi třídy / FLOW Together — karty */
+.beyond-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin-top: var(--space-xl); }
+.beyond-card {
+  background: var(--c-white);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-card);
+  padding: 26px 24px;
+}
+.beyond-card h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--c-blue-deep);
+  margin: 0 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--c-yellow);
+}
+.beyond-card p { margin: 0; color: var(--c-muted); font-size: var(--fs-sm); line-height: 1.6; }
+.beyond-card p strong { color: var(--c-blue-deep); font-weight: 700; }
+@media (max-width: 880px) { .beyond-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .beyond-grid { grid-template-columns: 1fr; } }
+
+/* ───── Týdenní rytmus */
+.week-list { max-width: 860px; margin: 0 auto; border-top: 1.5px solid rgba(20, 37, 107, 0.14); }
+.week-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-md);
+  align-items: start;
+  padding: 26px 0;
+  border-bottom: 1.5px solid rgba(20, 37, 107, 0.14);
+}
+.week-row__day {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-blue);
+  padding-top: 5px;
+}
+.week-row h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; color: var(--c-blue-deep); margin: 0 0 6px; }
+.week-row p { margin: 0; color: var(--c-muted); font-size: var(--fs-md); line-height: 1.6; }
+@media (max-width: 620px) {
+  .week-row { grid-template-columns: 1fr; gap: 6px; }
+  .week-row__day { padding-top: 0; }
+}
+.founding__lead--sub { font-size: var(--fs-sm); opacity: 0.8; margin-top: -6px; }
