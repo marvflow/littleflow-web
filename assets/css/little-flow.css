@@ -901,3 +901,74 @@
   padding-bottom: 2px;
 }
 .lf-pillar .lf-more:hover { color: var(--c-blue-deep); border-bottom-color: var(--c-blue-deep); }
+
+.lf-foot-hl { color: var(--c-yellow); }
+
+/* ============================================================
+   PALETA — pastelová zelená (schváleno 21. 9. 2026)
+   flow.css se needituje. Tady se jen přepisují jeho proměnné
+   a obracejí barvy textu na plochách, které dřív byly tmavě modré.
+   NÁVRAT K MODROŽLUTÉ = smazat celý tento blok, nic jiného.
+
+   Základ #cce3d3 je vzorník od ředitelky. Ostatní odstíny jsou
+   odvozené ze stejného tónu (138°), jen v jiné světlosti.
+   Kontrasty ověřené: tmavá na pastelu 8,8:1 · na papíru 11,4:1 ·
+   bílá na tmavé 12,0:1 · žlutá na tmavé 8,6:1. Všechno nad WCAG AA.
+   ============================================================ */
+:root {
+  --lf-ink:    #193e24;   /* text a tmavé plochy */
+  --lf-pastel: #cce3d3;   /* hlavička, hero, patička */
+  --lf-paper:  #f6fbf8;   /* podklad stránky */
+  --lf-wash:   #eaf6ed;   /* střídavé sekce místo krému */
+  --lf-accent: #27683a;   /* akcent čitelný i na pastelu */
+
+  --c-blue-deep: #193e24;
+  --c-blue: #27683a;
+  --c-blue-soft: #7cb48d;
+  --c-blue-pastel: #a1ceaf;
+  --c-blue-pastel-soft: #eaf6ed;
+  --c-cream: #eaf6ed;
+  --c-text: #1d2f23;
+  --c-muted: #5c7364;
+  --c-border: rgba(25, 62, 36, 0.14);
+}
+
+body, .section { background: var(--lf-paper); }
+.section--cream { background: var(--lf-wash); }
+.lf-callout:not(.lf-callout--strong) { background: var(--lf-wash); }
+.fee-card:not(.fee-card--featured), .day-block, .beyond-card, .visit-offers, .offer { background: #ffffff; }
+.fee-card--featured { background: var(--lf-ink); color: #ffffff; }
+
+/* ───── Pastelové plochy: hlavička, hero, patička */
+.site-header, .hero-a, .site-footer { background: var(--lf-pastel); }
+.site-header { box-shadow: none; border-bottom: 1px solid rgba(25, 62, 36, 0.10); }
+.hero-a::before { background: radial-gradient(circle, rgba(25,62,36,0.10) 0%, rgba(25,62,36,0.04) 55%, rgba(25,62,36,0) 100%); }
+
+/* navigace */
+.site-nav .site-nav__link { color: var(--lf-ink); }
+.site-nav .site-nav__link:hover,
+.site-nav .site-nav__link:focus-visible { color: var(--lf-ink); }
+.burger span { background: var(--lf-ink); }
+
+/* hero */
+.hero-a, .hero-a h1, .hero-a .lead { color: var(--lf-ink); }
+.hero-a h1 em { color: var(--lf-accent); }
+.hero-a .lead { color: #3d5346; }
+.hero-a__eyebrow { color: var(--lf-accent); border-color: rgba(25,62,36,0.28); }
+.hero-a__badge { color: var(--lf-ink); border-color: rgba(25,62,36,0.22); background: rgba(255,255,255,0.5); }
+.hero-a__badge::before, .hero-a__badge strong { color: var(--lf-accent); }
+.btn-secondary--on-dark { color: var(--lf-ink); border-color: rgba(25,62,36,0.38); }
+.btn-secondary--on-dark:hover { background: var(--lf-ink); color: #ffffff; }
+
+/* patička */
+.site-footer, .site-footer p, .site-footer .site-footer__link,
+.site-footer__small, .site-footer__legal, .site-footer__eu-text { color: var(--lf-ink); }
+.site-footer__small, .site-footer__legal, .site-footer__eu-text { color: #4a5f52; }
+.site-footer__heading { color: var(--lf-accent); }
+.site-footer__email { color: var(--lf-ink); }
+.site-footer__link:hover { background: var(--lf-ink); color: #ffffff; }
+.site-footer__social, .contact-col .site-footer__social { background: rgba(25,62,36,0.10); }
+.site-footer__social img { filter: brightness(0) saturate(100%) invert(16%) sepia(24%) saturate(1400%) hue-rotate(89deg) brightness(95%) contrast(92%); }
+.site-footer__bottom-line { border-top-color: rgba(25,62,36,0.14); }
+.site-footer .lf-foot-hl { color: var(--lf-accent); }
+.mobile-drawer { background: rgba(25, 62, 36, 0.55); }
