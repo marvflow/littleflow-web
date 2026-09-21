@@ -887,3 +887,17 @@
    i když se delší nadpis (nebo anglická verze) zalomí na dva řádky. */
 .lf-pillar h3 { min-height: calc(2 * 1.18em + 12px); display: flex; align-items: flex-start; }
 @media (max-width: 620px) { .lf-pillar h3 { min-height: 0; display: block; } }
+
+/* Odkaz „čti dál" uvnitř pilíře — na vlastní řádek, ať není schovaný v textu */
+.lf-pillar .lf-more {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-sm);
+  color: var(--c-blue);
+  text-decoration: none;
+  border-bottom: 2px solid var(--c-yellow);
+  padding-bottom: 2px;
+}
+.lf-pillar .lf-more:hover { color: var(--c-blue-deep); border-bottom-color: var(--c-blue-deep); }
