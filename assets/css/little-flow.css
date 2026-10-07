@@ -1376,3 +1376,30 @@ body, .section { background: var(--lf-paper); }
   .lf-promo__body { padding: 18px 20px 16px; }
   .lf-promo__actions { margin-top: 14px; }
 }
+
+/* ============================================================
+   MÁTE TO K NÁM KOUSEK — čtvrti v okolí (řádky, žádné boxy)
+   ============================================================ */
+.lf-near { max-width: 860px; margin: 0 auto; padding: 0; }
+.lf-near__row {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+  gap: 6px 28px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-top: 1px solid var(--c-border);
+}
+.lf-near__row:last-child { border-bottom: 1px solid var(--c-border); }
+.lf-near__row dt {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-lg);
+  line-height: 1.2;
+  color: var(--lf-ink, var(--c-blue-deep));
+}
+.lf-near__row dd { margin: 0; font-size: var(--fs-md); line-height: 1.55; color: var(--c-text); }
+.lf-near__note { max-width: 860px; margin: 16px auto 0; font-size: var(--fs-sm); color: var(--c-muted); }
+@media (max-width: 620px) {
+  .lf-near__row { grid-template-columns: 1fr; padding: 14px 0; }
+  .lf-near__row dd { font-size: var(--fs-base); }
+}
