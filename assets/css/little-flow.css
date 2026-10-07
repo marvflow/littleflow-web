@@ -1206,3 +1206,173 @@ body, .section { background: var(--lf-paper); }
           mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 2 9h3v11h5v-6h4v6h5V9h3L12 2Z'/%3E%3C/svg%3E");
 }
 .lf-out .lf-more { display: inline-block; margin-top: 12px; }
+
+/* ============================================================
+   VYSKAKOVACÍ OKNO — Founding Family Rate
+   Chování: assets/js/lf-popup.js · obsah: build/common.py (promo_popup)
+   ============================================================ */
+.lf-promo-lock { overflow: hidden; }
+.lf-promo {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.lf-promo[hidden] { display: none; }
+.lf-promo.is-open { opacity: 1; }
+.lf-promo__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 62, 36, 0.72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.lf-promo__box {
+  position: relative;
+  width: min(940px, 100%);
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  background: #ffffff;
+  border: 2px solid var(--lf-ink, var(--c-blue-deep));
+  border-radius: var(--r-card);
+  box-shadow: 10px 10px 0 0 var(--c-yellow);
+  overflow: hidden;
+  transform: translateY(14px) scale(0.985);
+  transition: transform 0.25s ease;
+}
+.lf-promo.is-open .lf-promo__box { transform: none; }
+.lf-promo__media { position: relative; min-height: 100%; background: var(--lf-pastel, var(--c-cream)); }
+.lf-promo__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 42% 50%;
+  display: block;
+}
+.lf-promo__body {
+  position: relative;
+  padding: 44px 44px 36px;
+  overflow-y: auto;
+  color: var(--lf-ink, var(--c-blue-deep));
+}
+.lf-promo__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--lf-ink, var(--c-blue-deep));
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--t, 0.2s);
+}
+.lf-promo__close:hover,
+.lf-promo__close:focus-visible { background: var(--lf-wash, var(--c-cream)); }
+.lf-promo__eyebrow {
+  display: inline-block;
+  margin: 0 40px 16px 0;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--c-yellow);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.lf-promo__title {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--lf-ink, var(--c-blue-deep));
+}
+.lf-promo__title em { font-style: normal; color: var(--lf-accent, var(--c-blue)); }
+.lf-promo__lead { margin: 0 0 20px; color: var(--c-muted); font-size: var(--fs-base); line-height: 1.6; }
+.lf-promo__prices { margin: 0; padding: 0; }
+.lf-promo__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 11px 0;
+  border-top: 1px solid var(--c-border);
+}
+.lf-promo__row:last-child { border-bottom: 1px solid var(--c-border); }
+.lf-promo__row dt { font-weight: 700; font-size: var(--fs-base); }
+.lf-promo__row dd { margin: 0; font-size: var(--fs-sm); color: var(--c-muted); }
+.lf-promo__row dd s { color: var(--c-muted); margin-right: 6px; }
+.lf-promo__row dd strong {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--lf-ink, var(--c-blue-deep));
+  letter-spacing: -0.01em;
+}
+.lf-promo__fine { margin: 12px 0 0; font-size: var(--fs-sm); color: var(--c-muted); line-height: 1.55; }
+.lf-promo__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 24px; }
+.lf-promo__no {
+  border: 0;
+  background: none;
+  padding: 12px 2px;
+  font: inherit;
+  font-size: var(--fs-base);
+  color: var(--c-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.lf-promo__no:hover { color: var(--lf-ink, var(--c-blue-deep)); }
+.lf-promo__note { margin: 20px 0 0; font-size: var(--fs-sm); color: var(--c-muted); line-height: 1.55; }
+.lf-promo__note a { color: var(--lf-accent, var(--c-blue)); font-weight: 700; border-bottom: 2px solid var(--c-yellow); }
+
+@media (max-width: 760px) {
+  .lf-promo { padding: 14px; align-items: flex-end; }
+  .lf-promo__box {
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 28px);
+    max-height: calc(100dvh - 28px);
+    box-shadow: 6px 6px 0 0 var(--c-yellow);
+    overflow-y: auto;
+  }
+  .lf-promo__media { min-height: 0; height: 150px; }
+  .lf-promo__media img { object-position: 40% 42%; }
+  .lf-promo__body { position: static; padding: 24px 22px 22px; overflow: visible; }
+  .lf-promo__close { top: 8px; right: 8px; background: rgba(255, 255, 255, 0.92); }
+  .lf-promo__eyebrow { margin: 0 0 12px; font-size: 0.6875rem; letter-spacing: 0.06em; }
+  .lf-promo__row { flex-wrap: nowrap; padding: 9px 0; }
+  .lf-promo__row dd { white-space: nowrap; }
+  .lf-promo__row dd s { font-size: 0.8125rem; }
+  .lf-promo__row dd strong { font-size: 1.15rem; }
+  .lf-promo__lead { margin-bottom: 14px; }
+  .lf-promo__actions { margin-top: 18px; }
+  .lf-promo__actions .btn { width: 100%; justify-content: center; text-align: center; }
+  .lf-promo__no { width: 100%; text-align: center; padding: 8px 2px; }
+  .lf-promo__note { margin-top: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lf-promo, .lf-promo__box { transition: none; }
+  .lf-promo__box { transform: none; }
+}
+/* nízké telefony: tlačítko musí být vidět bez posouvání */
+@media (max-width: 760px) and (max-height: 720px) {
+  .lf-promo__media { height: 96px; }
+  .lf-promo__lead, .lf-promo__note { display: none; }
+  .lf-promo__body { padding: 18px 20px 16px; }
+  .lf-promo__actions { margin-top: 14px; }
+}
