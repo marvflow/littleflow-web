@@ -1472,3 +1472,63 @@ body, .section { background: var(--lf-paper); }
   .lf-loc__list li, .lf-loc__list li:nth-child(n+4) { grid-column: span 1; }
   .lf-loc__list li:last-child { grid-column: span 2; }
 }
+
+/* ============================================================
+   ADAPTACE — body v timeline + seznam „Co je pro nás důležité“
+   ============================================================ */
+.lf-adapt__points { margin: 0; padding: 0; list-style: none; }
+.lf-adapt__points li {
+  position: relative;
+  padding-left: 20px;
+  margin: 0 0 8px;
+  color: var(--c-muted);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+}
+.lf-adapt__points li:last-child { margin-bottom: 0; }
+.lf-adapt__points li::before {
+  content: ""; position: absolute; left: 2px; top: 0.62em;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--lf-accent, var(--c-blue));
+}
+.lf-checks {
+  list-style: none; margin: 0 auto; padding: 0;
+  max-width: 860px;
+  border-top: 1px solid var(--c-border);
+}
+.lf-checks li {
+  display: flex; gap: 14px; align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--c-border);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  line-height: 1.35;
+  color: var(--lf-ink, var(--c-blue-deep));
+}
+.lf-checks li::before { content: "✓"; color: var(--lf-accent, var(--c-blue)); font-weight: 800; flex: 0 0 auto; }
+@media (max-width: 620px) {
+  .lf-adapt__points li { font-size: var(--fs-base); }
+  .lf-checks li { font-size: var(--fs-md); padding: 13px 0; }
+}
+
+/* Adaptace — ilustrace v kroužku, fotka v timeline, fotka u hodnot */
+.day-row__icon.lf-ill {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--lf-wash, #eaf6ed);
+  border: 2px solid var(--lf-ink, var(--c-blue-deep));
+}
+.day-row__icon.lf-ill--1 { background: var(--c-yellow-soft, #fff1b0); }
+.day-row__icon.lf-ill svg { width: 38px; height: 38px; display: block; }
+.lf-adapt .day-row { grid-template-columns: 150px 72px 1fr; }
+.lf-adapt__photo { margin: 0; padding: 28px 0; border-bottom: 1.5px solid rgba(20, 37, 107, 0.14); }
+.lf-adapt__photo img { width: 100%; height: auto; display: block; border-radius: var(--r-card); aspect-ratio: 16 / 9; object-fit: cover; }
+.lf-adapt__values .split__photo img { aspect-ratio: 1 / 1; }
+.lf-adapt__values .split__body h2 { margin-bottom: var(--space-md); }
+.lf-adapt__values .lf-checks { max-width: none; }
+@media (max-width: 620px) {
+  .lf-adapt .day-row { grid-template-columns: 56px 1fr; }
+  .day-row__icon.lf-ill { width: 48px; height: 48px; }
+  .day-row__icon.lf-ill svg { width: 30px; height: 30px; }
+}
