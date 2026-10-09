@@ -22,8 +22,8 @@
   <meta name="twitter:description" content="Kindergarten for children aged 2 to 6 in Balabenka, Prague — close to Libeň, Vysočany, Karlín, Žižkov and Holešovice. A small group of max. 12 children, Czech and English every day. Experience Morning every Thursday 8:30.">
   <meta name="twitter:image" content="https://littleflow.cz/images/og-little-flow.jpg">
 
-  <link rel="icon" type="image/png" href="../images/little-flow-fav.png?v=20261009-1043">
-  <link rel="apple-touch-icon" href="../images/little-flow-apple.png?v=20261009-1043">
+  <link rel="icon" type="image/png" href="../images/little-flow-fav.png?v=20261009-1543">
+  <link rel="apple-touch-icon" href="../images/little-flow-apple.png?v=20261009-1543">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,9 +50,9 @@
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQS7FP5W');
   </script>
-  <link rel="stylesheet" href="../assets/css/cmp.css?v=20261009-1043">
-  <link rel="stylesheet" href="../assets/css/flow.css?v=20261009-1043">
-  <link rel="stylesheet" href="../assets/css/little-flow.css?v=20261009-1043">
+  <link rel="stylesheet" href="../assets/css/cmp.css?v=20261009-1543">
+  <link rel="stylesheet" href="../assets/css/flow.css?v=20261009-1543">
+  <link rel="stylesheet" href="../assets/css/little-flow.css?v=20261009-1543">
 
   <!-- Meta Pixel Code -->
   <script>
@@ -64,18 +64,22 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('consent', 'revoke');
-  fbq('init', '1250403810500269');
-  if (window.__flowConsent && window.__flowConsent.marketing) {
-    fbq('consent', 'grant');
-    fbq('track', 'PageView');
-    window.__flowFbPvFired = true;
-  }
+  fbq('consent', 'revoke');            // bez souhlasu s marketingovými cookies nic neposílat
+  fbq('init', '2178706149380188');
+  window.__lfPixel = '2178706149380188';     // události posíláme jen do tohoto pixelu (trackSingle) —
+                                       // GTM na stránce inicializuje i pixel ZŠ FLOW
+  try {
+    var lfc = JSON.parse(localStorage.getItem('flow-consent-v1') || 'null');
+    if (lfc && lfc.v === 1 && lfc.marketing) {   // souhlas dal už dřív
+      fbq('consent', 'grant');
+      fbq('trackSingle', '2178706149380188', 'PageView');
+      window.__flowFbPvFired = true;
+    }
+  } catch (e) {}
   </script>
-  <noscript><img alt="" height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1250403810500269&ev=PageView&noscript=1"
-  /></noscript>
+  <!-- noscript pixel záměrně není: bez JS nejde ověřit souhlas s cookies -->
   <!-- End Meta Pixel Code -->
+  <script defer src="../assets/js/lf-utm.js?v=20261009-1543"></script>
 </head>
 <body>
 
@@ -577,10 +581,10 @@
           <label for="ms-interest">I’m interested in</label>
           <select class="form-select" id="ms-interest" name="zajem" required>
             <option value="" disabled selected>— Choose —</option>
-            <option>Experience Morning (every Thursday, 8:30 — 10:30)</option>
-            <option>Coffee with Management (every Monday · 10:00 — 11:30)</option>
-            <option>An individual meeting</option>
-            <option>Just send me information</option>
+            <option data-lead="experience_morning">Experience Morning (every Thursday, 8:30 — 10:30)</option>
+            <option data-lead="kava_s_vedenim">Coffee with Management (every Monday · 10:00 — 11:30)</option>
+            <option data-lead="individualni_schuzka">An individual meeting</option>
+            <option data-lead="informace">Just send me information</option>
           </select>
         </div>
         <div class="form-field" style="margin-top: var(--space-sm);">
@@ -686,9 +690,9 @@
     </div>
   </div>
 </div>
-<script defer src="../assets/js/lf-popup.js?v=20261009-1043"></script>
+<script defer src="../assets/js/lf-popup.js?v=20261009-1543"></script>
 
-<script defer src="../assets/js/cmp.js?v=20261009-1043"></script>
-<script src="../assets/js/flow.js?v=20261009-1043"></script>
+<script defer src="../assets/js/cmp.js?v=20261009-1543"></script>
+<script src="../assets/js/flow.js?v=20261009-1543"></script>
 </body>
 </html>

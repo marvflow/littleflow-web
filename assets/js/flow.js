@@ -134,6 +134,15 @@
       if (btn) { btn.disabled = true; btn.innerHTML = IS_EN ? 'Submitting…' : 'Odesílám…'; }
 
       var data = new FormData(form);
+
+      // Little FLOW: UTM z reklamy připíšeme i do zprávy — backend ukládá zprávu vždy,
+      // takže zdroj leadu uvidíme v Sheetu i v e-mailu, ať backend zná pole utm_* nebo ne.
+      // (Samotná pole utm_* se posílají zvlášť jako skrytá pole, viz lf-utm.js.)
+      if (window.LFUtm && LFUtm.summary()) {
+        var msgVal = data.get('message') || '';
+        data.set('message', (msgVal ? msgVal + '\n\n' : '') + '[Reklama: ' + LFUtm.summary() + ']');
+      }
+
       fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data })
         .then(function () {
           // Source detection — page slug z URL (lepsi nez hardcoded 'homepage')
@@ -148,20 +157,17 @@
             });
           }
 
-          // 2) FB Pixel — consent-gated. Lead i CompleteRegistration naraz.
-          //    CompleteRegistration visel do 9. 9. 2026 jen na /dekujeme-za-zajem,
-          //    kam ale zadny formular neposila — kampane tedy optimalizovaly
-          //    na event, ktery se nikdy nestal. Lead zustava kvuli publikum.
+          // 2) Meta Pixel — Lead až po odeslání (ne na klik), jen se souhlasem,
+          //    jen do pixelu Little FLOW. content_name = co rodič vybral v „Mám zájem o“
+          //    (experience_morning / kava_s_vedenim / individualni_schuzka / informace).
+          //    Pozn.: Apps Script odpověď přečíst nejde (no-cors), „odesláno“ = požadavek prošel sítí.
           if (window.fbq && window.__flowConsent && window.__flowConsent.marketing) {
-            window.fbq('track', 'Lead', {
-              content_name: pagePath,
-              content_category: 'Callback form submit'
-            });
-            window.fbq('track', 'CompleteRegistration', {
-              content_name: pagePath,
-              content_category: 'Callback form submit',
-              status: 'submitted'
-            });
+            var sel = form.querySelector('[name="zajem"]');
+            var opt = sel && sel.options ? sel.options[sel.selectedIndex] : null;
+            var leadName = (opt && opt.getAttribute('data-lead')) || (sel && sel.value) || 'formular';
+            var leadParams = { content_name: leadName, content_category: pagePath };
+            if (window.__lfPixel) window.fbq('trackSingle', window.__lfPixel, 'Lead', leadParams);
+            else window.fbq('track', 'Lead', leadParams);
           }
 
           showSuccess(name);

@@ -58,5 +58,17 @@ Experience Morning (pruh pod hero na každé stránce).
 
 ## Měření
 
-GTM `GTM-KQS7FP5W` + Meta Pixel `1250403810500269` — stejné jako skolaflow.cz, consent-gated přes cookie lištu.
-V GTM/GA4 je potřeba přidat doménu `littleflow.cz` do cross-domain nastavení (nebo založit vlastní GA4 stream).
+- **Meta Pixel `2178706149380188`** (dataset „Little FLOW web“, od 10/2026). Kód v `<head>` každé stránky
+  (`build/common.py` → `head()`). Startuje s `fbq('consent','revoke')` a nic neposílá, dokud návštěvník
+  v cookie liště nepovolí marketingové cookies (`cmp.js` pak zavolá `consent grant` + PageView).
+  Souhlas daný dřív se čte hned v hlavičce. Noscript pixel záměrně není (bez JS nejde ověřit souhlas).
+- Události jdou přes `fbq('trackSingle', …)` jen do pixelu Little FLOW — GTM `GTM-KQS7FP5W` (sdílený se
+  skolaflow.cz) na stránce inicializuje i pixel ZŠ FLOW `1250403810500269`.
+- **Lead** se posílá po odeslání formuláře (`flow.js`), `content_name` = volba „Mám zájem o“:
+  `experience_morning` / `kava_s_vedenim` / `individualni_schuzka` / `informace`.
+- **UTM** (`assets/js/lf-utm.js`): `utm_source/medium/campaign/content/term` z URL se uloží do sessionStorage,
+  přidají se do každého formuláře jako skrytá pole a zároveň se připíšou na konec zprávy
+  („[Reklama: utm_source=…]“), aby byly v Sheetu i v e-mailu, i když backend pole utm_* neukládá.
+  `?zajem=experience|kava|schuzka|info` předvybere „Mám zájem o“.
+- Test: `https://www.littleflow.cz/?utm_source=meta&utm_campaign=test&utm_content=test` → povolit cookies →
+  odeslat formulář → Events Manager → Test events: PageView + Lead.

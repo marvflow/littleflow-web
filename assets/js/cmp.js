@@ -143,7 +143,9 @@
         window.fbq('consent', 'grant');
         // If first time granting after page load, fire PageView (otherwise already fired by GTM tag)
         if (!window.__flowFbPvFired) {
-          window.fbq('track', 'PageView');
+          // Little FLOW: jen do vlastního pixelu (na stránce běží i pixel ZŠ FLOW z GTM)
+          if (window.__lfPixel) window.fbq('trackSingle', window.__lfPixel, 'PageView');
+          else window.fbq('track', 'PageView');
           window.__flowFbPvFired = true;
         }
       } else {
