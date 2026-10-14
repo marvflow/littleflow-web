@@ -15,7 +15,6 @@
 
   var STORAGE_KEY = 'flow-consent-v1';
   var STORAGE_VERSION = 1;
-  var FB_PIXEL_ID = '1250403810500269';
 
   // ---------- texts (CS) ----------
   var T = {
