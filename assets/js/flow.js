@@ -124,6 +124,20 @@
       success.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
+    function lfCookie(name) {
+      var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+      return m ? decodeURIComponent(m[1]) : '';
+    }
+
+    function lfUuid() {
+      try { if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); } catch (e) {}
+      // záloha pro starší prohlížeče
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0;
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -142,6 +156,21 @@
         var msgVal = data.get('message') || '';
         data.set('message', (msgVal ? msgVal + '\n\n' : '') + '[Reklama: ' + LFUtm.summary() + ']');
       }
+
+      // Little FLOW: ID události pro Meta — stejné ID dostane pixel (eventID) i server
+      // (přes Apps Script → Worker /lead/web), aby Meta Lead nezapočítala dvakrát.
+      var eventId = 'lead_' + lfUuid();
+      var fbc = lfCookie('_fbc');
+      if (!fbc && window.LFUtm && LFUtm.fbclid()) {
+        fbc = 'fb.1.' + (LFUtm.fbclidTs() || Date.now()) + '.' + LFUtm.fbclid();
+      }
+      data.set('event_id', eventId);
+      data.set('fbp', lfCookie('_fbp'));
+      data.set('fbc', fbc);
+      data.set('user_agent', navigator.userAgent || '');
+      data.set('event_source_url', location.href);
+      // souhlas s marketingovými cookies — server podle toho rozhodne, jestli smí poslat událost do Meta
+      data.set('consent_marketing', (window.__flowConsent && window.__flowConsent.marketing) ? '1' : '0');
 
       fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data })
         .then(function () {
@@ -166,8 +195,8 @@
             var opt = sel && sel.options ? sel.options[sel.selectedIndex] : null;
             var leadName = (opt && opt.getAttribute('data-lead')) || (sel && sel.value) || 'formular';
             var leadParams = { content_name: leadName, content_category: pagePath };
-            if (window.__lfPixel) window.fbq('trackSingle', window.__lfPixel, 'Lead', leadParams);
-            else window.fbq('track', 'Lead', leadParams);
+            if (window.__lfPixel) window.fbq('trackSingle', window.__lfPixel, 'Lead', leadParams, { eventID: eventId });
+            else window.fbq('track', 'Lead', leadParams, { eventID: eventId });
           }
 
           showSuccess(name);
@@ -572,10 +601,10 @@
 
     // FB Pixel CompleteRegistration — consent-gated
     if (window.fbq && window.__flowConsent && window.__flowConsent.marketing) {
-      window.fbq('track', 'CompleteRegistration', {
-        content_name: 'Callback form thank-you',
-        status: 'submitted'
-      });
+      var crParams = { content_name: 'Callback form thank-you', status: 'submitted' };
+      // jen do pixelu Little FLOW — GTM na stránce načítá i pixel ZŠ FLOW
+      if (window.__lfPixel) window.fbq('trackSingle', window.__lfPixel, 'CompleteRegistration', crParams);
+      else window.fbq('track', 'CompleteRegistration', crParams);
     }
   }
 })();

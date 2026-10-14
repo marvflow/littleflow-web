@@ -9,6 +9,7 @@
        schuzka / meeting → Individuální schůzka
        info            → Zatím jen informace
      (zajem=skolka nic nepředvybírá — na littleflow.cz je všechno školka)
+   - uloží i fbclid (+ čas příchodu) pro parametr fbc u Lead události
    - nic z toho nejsou cookies ani osobní údaje; sessionStorage zmizí
      se zavřením záložky
    ============================================================ */
@@ -37,9 +38,21 @@
     });
   } catch (e) {}
 
-  // veřejné API pro flow.js (připsání do zprávy)
+  // 1b) fbclid z reklamy (Meta ho přidává do odkazu) — flow.js z něj sestaví fbc,
+  //     když pixel kvůli chybějícímu souhlasu nestihl uložit cookie _fbc
+  try {
+    var fbclid = new URLSearchParams(location.search).get('fbclid');
+    if (fbclid) {
+      sessionStorage.setItem('lf_fbclid', fbclid.slice(0, 500));
+      sessionStorage.setItem('lf_fbclid_ts', String(Date.now()));
+    }
+  } catch (e) {}
+
+  // veřejné API pro flow.js (připsání do zprávy, fbc)
   window.LFUtm = {
     get: get,
+    fbclid: function () { return get('fbclid') || ''; },
+    fbclidTs: function () { return get('fbclid_ts') || ''; },
     summary: function () {
       var parts = [];
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
