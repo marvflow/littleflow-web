@@ -5,7 +5,7 @@
    - do každého formuláře přidá skrytá pole utm_* (odešlou se s ním)
    - ?zajem=… předvybere volbu v „Mám zájem o“:
        experience / em → Experience Morning
-       kava / coffee   → Káva s vedením
+       kava / coffee   → Káva s ředitelkou
        schuzka / meeting → Individuální schůzka
        info            → Zatím jen informace
      (zajem=skolka nic nepředvybírá — na littleflow.cz je všechno školka)

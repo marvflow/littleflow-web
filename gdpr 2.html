@@ -300,19 +300,25 @@
 <!-- ===== HEADER ===== -->
 <!-- LF-NAV-START -->
 <header class="site-header">
+  <div class="lf-topbar">
+    <div class="lf-topbar__inner">
+      <a href="mailto:info@skolaflow.cz" class="lf-topbar__link lf-topbar__link--mail">info@skolaflow.cz</a>
+      <a href="tel:+420770673828" class="lf-topbar__link lf-topbar__link--tel">+420 770 673 828</a>
+    </div>
+  </div>
   <div class="site-header__inner">
     <a href="./" class="site-header__brand lf-brand" aria-label="Little FLOW — domů">
-      <img src="images/little-flow-logo-white.png" alt="Little Flow" class="lf-logo">
+      <img src="images/little-flow-logo-ink.png" alt="Little Flow" class="lf-logo">
     </a>
 
     <nav class="site-nav" aria-label="Hlavní navigace">
       <a href="jak-ucime" class="site-nav__link">Jak učíme</a>
       <a href="den-ve-skolce" class="site-nav__link">Den ve školce</a>
       <a href="skolne" class="site-nav__link">Školné</a>
-      <a href="navsteva" class="site-nav__link">Návštěva</a>
+      <a href="caste-otazky" class="site-nav__link">Otázky</a>
       <a href="kontakt" class="site-nav__link">Kontakt</a>
-      <a href="en/gdpr" class="site-nav__link" lang="en" hreflang="en" title="English">EN</a>
-      <a href="navsteva#form" class="site-nav__cta">Přijďte na návštěvu →</a>
+      <a href="en/gdpr 2" class="site-nav__link" lang="en" hreflang="en" title="English">EN</a>
+      <a href="./#form" class="site-nav__cta">Přijďte na návštěvu →</a>
     </nav>
 
     <button class="burger" type="button" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-drawer">
@@ -323,15 +329,15 @@
 
 <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
   <nav class="mobile-drawer__inner" aria-label="Mobilní menu">
-    <a href="navsteva#form" class="btn btn-primary">Přijďte na návštěvu →</a>
+    <a href="./#form" class="btn btn-primary">Přijďte na návštěvu →</a>
     <a href="./" class="mobile-drawer__link">Domů</a>
     <a href="jak-ucime" class="mobile-drawer__link">Jak učíme</a>
     <a href="den-ve-skolce" class="mobile-drawer__link">Den ve školce</a>
     <a href="skolne" class="mobile-drawer__link">Školné</a>
-    <a href="navsteva" class="mobile-drawer__link">Návštěva</a>
+    <a href="caste-otazky" class="mobile-drawer__link">Otázky</a>
     <a href="kontakt" class="mobile-drawer__link">Kontakt</a>
     <a href="https://www.skolaflow.cz/" class="mobile-drawer__link" target="_blank" rel="noopener">ZŠ FLOW ↗</a>
-    <a href="en/gdpr" class="mobile-drawer__link" lang="en" hreflang="en">🇬🇧 English</a>
+    <a href="en/gdpr 2" class="mobile-drawer__link" lang="en" hreflang="en">🇬🇧 English</a>
   </nav>
 </aside>
 <!-- LF-NAV-END -->
@@ -486,9 +492,9 @@
   <div class="site-footer__inner">
     <div class="site-footer__top lf-footer-top">
       <a href="./" class="site-footer__brand lf-brand" aria-label="Little FLOW — domů">
-        <img src="images/little-flow-logo-white.png" alt="Little Flow" class="lf-logo lf-logo--footer">
+        <img src="images/little-flow-logo-ink.png" alt="Little Flow" class="lf-logo lf-logo--footer">
       </a>
-      <a href="navsteva#form" class="btn btn-primary site-footer__cta">Přijďte na návštěvu →</a>
+      <a href="./#form" class="btn btn-primary site-footer__cta">Přijďte na návštěvu →</a>
     </div>
 
     <div class="site-footer__cols">
@@ -497,7 +503,7 @@
         <a href="jak-ucime" class="site-footer__link">Jak učíme</a>
         <a href="den-ve-skolce" class="site-footer__link">Den ve školce</a>
         <a href="skolne" class="site-footer__link">Školné</a>
-        <a href="navsteva" class="site-footer__link">Návštěva</a>
+        <a href="caste-otazky" class="site-footer__link">Otázky</a>
         <a href="kontakt" class="site-footer__link">Kontakt</a>
         <a href="gdpr" class="site-footer__link">GDPR</a>
         <a href="https://www.skolaflow.cz/" class="site-footer__link" target="_blank" rel="noopener">ZŠ FLOW ↗</a>
@@ -506,7 +512,7 @@
         <p class="site-footer__heading">Kampus</p>
         <p>Českomoravská 1a<br>190 00 Praha 9 — Balabenka</p>
         <p class="site-footer__small" style="margin-top:14px;">Tramvaj Balabenka · 1 min pěšky<br>Metro B Českomoravská · 10 min pěšky</p>
-        <p class="site-footer__small" style="margin-top:14px;"><strong style="color:var(--c-yellow);">Experience Morning</strong><br>každý čtvrtek · 8:30 — 10:30</p>
+        <p class="site-footer__small" style="margin-top:14px;"><strong class="lf-foot-hl">Experience Morning</strong><br>každý čtvrtek · 8:30 — 10:30</p>
       </div>
       <div>
         <p class="site-footer__heading">Dejte nám vědět</p>
@@ -516,9 +522,8 @@
         <a href="mailto:gdpr@skolaflow.cz" class="site-footer__email">gdpr@skolaflow.cz</a>
         <p class="site-footer__small" style="margin-top:14px;">Sledujte nás</p>
         <div class="site-footer__socials">
-          <a href="https://www.facebook.com/skolaflowcz" target="_blank" rel="noopener" class="site-footer__social" aria-label="Facebook"><img src="images/facebook-logo-white.svg" alt="" loading="lazy"></a>
+          <a href="https://www.facebook.com/1196671230193935" target="_blank" rel="noopener" class="site-footer__social" aria-label="Facebook"><img src="images/facebook-logo-white.svg" alt="" loading="lazy"></a>
           <a href="https://www.linkedin.com/company/skolaflow/" target="_blank" rel="noopener" class="site-footer__social" aria-label="LinkedIn"><img src="images/linkedin-logo-white.svg" alt="" loading="lazy"></a>
-          <a href="https://www.instagram.com/skolaflowcz" target="_blank" rel="noopener" class="site-footer__social" aria-label="Instagram"><img src="images/instagram-logo-white.svg" alt="" loading="lazy"></a>
         </div>
       </div>
       <div>
@@ -542,6 +547,6 @@
 <!-- LF-FOOTER-END -->
 
 <script defer src="assets/js/cmp.js?v=20260916-2105"></script>
-<script src="assets/js/flow.js?v=202610140913-2105"></script>
+<script src="assets/js/flow.js?v=202610141425-2105"></script>
 </body>
 </html>

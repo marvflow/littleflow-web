@@ -12,10 +12,6 @@
   // ───── Jazyk: detekce z <html lang="..."> (EN web pouziva stejny script)
   var IS_EN = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
 
-  // ───── Rezervace prohlidky (Google Calendar appointment schedule)
-  // 60 min osobne v kampusu na Balabence. Menit na jednom miste.
-  var BOOKING_URL = 'https://calendar.app.google/1fSvBc6DYFKzNgc97';
-
   // ───── Footer dynamic year
   function setFooterYear() {
     var el = document.getElementById('footer-year');
@@ -106,15 +102,14 @@
             '<p class="form-success__event">' + esc(picked) + '</p>' +
             '<p>Potvrzení s detaily vám posíláme e-mailem.</p>';
       } else {
+        // Little FLOW: žádný odkaz na kalendář ZŠ — rodiči zavoláme a návštěvu domluvíme.
         body = IS_EN
-          ? '<h3>Thanks' + (firstName ? ', ' + firstName : '') + '!</h3>' +
-            '<p>Pick a time that suits you — an hour at our Balabenka campus. We\'ll walk you through the school and talk about what you\'re looking for.</p>' +
-            '<p class="form-success__cta"><a class="btn btn-primary" href="' + BOOKING_URL + '" target="_blank" rel="noopener">Book a campus visit</a></p>' +
-            '<p class="form-success__fallback">If none of the times work, write to <a href="mailto:info@skolaflow.cz">info@skolaflow.cz</a>.</p>'
-          : '<h3>Děkujeme za zájem!</h3>' +
-            '<p>Vyberte si termín, který vám sedne — hodina u nás na Balabence. Projdeme spolu školu a probereme, co pro dítě hledáte.</p>' +
-            '<p class="form-success__cta"><a class="btn btn-primary" href="' + BOOKING_URL + '" target="_blank" rel="noopener">Vybrat termín prohlídky</a></p>' +
-            '<p class="form-success__fallback">Kdyby vám žádný termín nesedl, napište na <a href="mailto:info@skolaflow.cz">info@skolaflow.cz</a>.</p>';
+          ? '<h3>Thank you!</h3>' +
+            '<p>We\'ll call you within 1 working day to arrange a visit: Experience Morning (Thursday 8:30–10:30) or Coffee with Management (Monday 10:00–11:30).</p>' +
+            '<p class="form-success__fallback">Prefer not to wait? Call <a href="tel:+420770673828">+420&nbsp;770&nbsp;673&nbsp;828</a> (8:00–15:00) or email <a href="mailto:info@skolaflow.cz">info@skolaflow.cz</a>.</p>'
+          : '<h3>Děkujeme!</h3>' +
+            '<p>Ozveme se vám do 1 pracovního dne a domluvíme návštěvu: Experience Morning (čtvrtek 8:30–10:30) nebo Káva s ředitelkou (pondělí 10:00–11:30).</p>' +
+            '<p class="form-success__fallback">Nechcete čekat? Volejte <a href="tel:+420770673828">+420&nbsp;770&nbsp;673&nbsp;828</a> (8:00–15:00) nebo napište na <a href="mailto:info@skolaflow.cz">info@skolaflow.cz</a>.</p>';
       }
 
       var success = document.createElement('div');
@@ -226,7 +221,7 @@
       { type: 'kafe',   title: 'Coffee with school leadership', date: '', time: "we'll arrange a date" },
       { type: 'online', title: 'Online meeting',                date: '', time: "we'll arrange a date" }
     ] : [
-      { type: 'kafe',   title: 'Káva s vedením školy', date: '', time: 'sjednáme termín' },
+      { type: 'kafe',   title: 'Káva s ředitelkou', date: '', time: 'sjednáme termín' },
       { type: 'online', title: 'Online schůzka',       date: '', time: 'sjednáme termín' }
     ];
     var MONTHS = IS_EN

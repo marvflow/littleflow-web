@@ -389,7 +389,7 @@
   .lang-item:last-child { border-bottom: none; }
 }
 
-/* ───── NÁVŠTĚVA — Experience Morning + Káva s vedením */
+/* ───── NÁVŠTĚVA — Experience Morning + Káva s ředitelkou */
 .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); align-items: start; }
 .visit-card {
   background: var(--c-white);
@@ -504,7 +504,7 @@
 /* Founding karty v ceníku — badge se vejde i vlevo nahoře */
 .fee-card__badge { right: auto; left: 24px; }
 
-/* Kdo vede Kávu s vedením — zobrazí se jen když je jméno doplněné */
+/* Kdo vede Kávu s ředitelkou — zobrazí se jen když je jméno doplněné */
 .visit-card__who {
   margin: calc(var(--space-md) * -0.5) 0 var(--space-md);
   font-size: var(--fs-sm);

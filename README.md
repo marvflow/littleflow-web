@@ -10,7 +10,7 @@ index.html            Domů
 jak-ucime.html        Jak učíme (6 pilířů + příklad projektu)
 den-ve-skolce.html    Den ve školce (denní program + prostory)
 skolne.html           Školné (ceník + co je zahrnuto)
-navsteva.html         Návštěva — Experience Morning, Káva s vedením, přijímání, adaptace, formulář
+navsteva.html         Návštěva — Experience Morning, Káva s ředitelkou, přijímání, adaptace, formulář
 kontakt.html          Kontakt (adresa, doprava, mapa, formulář)
 gdpr.html             Zásady GDPR
 404.html              Stránka nenalezena (Cloudflare Pages ji servíruje automaticky)
@@ -49,7 +49,7 @@ sloupec Zdroj = `little-flow-form`. Backend není potřeba měnit.
 
 ## Fakta na jednom místě
 
-Experience Morning (den + čas), Káva s vedením, jméno vedení a **Founding Family Rate**
+Experience Morning (den + čas), Káva s ředitelkou, jméno vedení a **Founding Family Rate**
 jsou konstanty v hlavičce `build/common.py`. Změna ceny nebo termínu = jeden řádek + rebuild,
 propíše se do všech stránek, titulků i meta popisků.
 
