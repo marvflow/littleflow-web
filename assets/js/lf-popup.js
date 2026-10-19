@@ -9,6 +9,7 @@
    - po datu v data-until se už neukáže nikdy
    - neukáže se, když má návštěvník otevřené menu, píše do
      formuláře nebo přišel rovnou na #form
+   - neukáže se návštěvníkům z reklam (utm_source=meta, utm_medium=paid_social|paid-social, fbclid)
    - test: přidat k adrese ?promo=1 (ukáže se vždy)
    ============================================================ */
 (function () {
@@ -105,7 +106,20 @@
   });
 
   if (forced) { open(); return; }
-  if (expired() || seen() || location.hash === '#form') return;
+  // Lidem z placených reklam okno s cenou neukazujeme (reklama slibuje hru, ne ceník).
+  // Kontroluje adresu i uložené UTM (lf-utm.js), aby se okno neukázalo ani na další stránce.
+  function fromAd() {
+    var q = location.search.toLowerCase();
+    if (/[?&]utm_source=meta(&|$)/.test(q) || /[?&]utm_medium=paid[_-]social(&|$)/.test(q) || /[?&]fbclid=/.test(q)) return true;
+    try {
+      var src = (sessionStorage.getItem('lf_utm_source') || '').toLowerCase();
+      var med = (sessionStorage.getItem('lf_utm_medium') || '').toLowerCase();
+      if (src === 'meta' || med === 'paid_social' || med === 'paid-social' || sessionStorage.getItem('lf_fbclid')) return true;
+    } catch (e) {}
+    return false;
+  }
+
+  if (expired() || seen() || location.hash === '#form' || fromAd()) return;
 
   var delay = Number(el.getAttribute('data-delay'));
   if (isNaN(delay) || delay < 0) delay = 0;

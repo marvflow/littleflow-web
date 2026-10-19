@@ -1532,3 +1532,42 @@ body, .section { background: var(--lf-paper); }
   .day-row__icon.lf-ill { width: 48px; height: 48px; }
   .day-row__icon.lf-ill svg { width: 30px; height: 30px; }
 }
+
+/* ============================================================
+   REKLAMY — pruh nahoře (?zajem=experience|kava) + mobilní lišta dole
+   (assets/js/lf-ads.js)
+   ============================================================ */
+.lf-adbar { background: var(--lf-ink, var(--c-blue-deep)); color: #fff; }
+.lf-adbar__inner {
+  max-width: var(--container, 1200px); margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap;
+}
+.lf-adbar__text { margin: 0; font-size: var(--fs-md); line-height: 1.45; color: #fff; }
+.lf-adbar__text strong { color: var(--c-yellow); font-family: var(--font-display); font-weight: 800; }
+.lf-adbar__btn { flex: 0 0 auto; }
+@media (max-width: 620px) {
+  .lf-adbar__inner { padding: 12px 16px 14px; }
+  .lf-adbar__text { font-size: var(--fs-base); }
+  .lf-adbar__btn { width: 100%; justify-content: center; text-align: center; }
+}
+
+.lf-mbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+  display: none; gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: #fff;
+  border-top: 1px solid var(--c-border);
+  box-shadow: 0 -6px 20px rgba(25, 62, 36, 0.12);
+}
+.lf-mbar.is-visible { display: flex; }
+.lf-mbar__btn {
+  flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 14px; border-radius: 999px;
+  font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-decoration: none;
+  border: 2px solid var(--lf-ink, var(--c-blue-deep));
+}
+.lf-mbar__btn--primary { flex-grow: 1.6; background: var(--c-yellow); color: var(--lf-ink, var(--c-blue-deep)); }
+.lf-mbar__btn--call { background: #fff; color: var(--lf-ink, var(--c-blue-deep)); }
+body.lf-mbar-on { padding-bottom: 76px; }
+body.lf-mbar-on .msg-fab { bottom: 88px; }
+@media (min-width: 769px) { .lf-mbar { display: none !important; } body.lf-mbar-on { padding-bottom: 0; } }
