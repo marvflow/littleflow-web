@@ -12,7 +12,7 @@
   'use strict';
 
   var EN = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
-  var TEL = '+420770673828';
+  var TEL = '+420607160163';
   var hasForm = !!document.getElementById('form');
   var FORM_HREF = hasForm ? '#form' : './#form';
 

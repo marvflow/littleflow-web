@@ -106,10 +106,10 @@
         body = IS_EN
           ? '<h3>Thank you!</h3>' +
             '<p>We\'ll call you within 1 working day to arrange a visit: Experience Morning (Thursday 8:30–10:30) or Coffee with Management (Monday 10:00–11:30).</p>' +
-            '<p class="form-success__fallback">Prefer not to wait? Call <a href="tel:+420770673828">+420&nbsp;770&nbsp;673&nbsp;828</a> (8:00–15:00) or email <a href="mailto:info@skolaflow.cz">info@skolaflow.cz</a>.</p>'
+            '<p class="form-success__fallback">Prefer not to wait? Call <a href="tel:+420607160163">+420&nbsp;607&nbsp;160&nbsp;163</a> (8:00–15:00) or email <a href="mailto:info@skolaflow.cz">info@skolaflow.cz</a>.</p>'
           : '<h3>Děkujeme!</h3>' +
             '<p>Ozveme se vám do 1 pracovního dne a domluvíme návštěvu: Experience Morning (čtvrtek 8:30–10:30) nebo Káva s ředitelkou (pondělí 10:00–11:30).</p>' +
-            '<p class="form-success__fallback">Nechcete čekat? Volejte <a href="tel:+420770673828">+420&nbsp;770&nbsp;673&nbsp;828</a> (8:00–15:00) nebo napište na <a href="mailto:info@skolaflow.cz">info@skolaflow.cz</a>.</p>';
+            '<p class="form-success__fallback">Nechcete čekat? Volejte <a href="tel:+420607160163">+420&nbsp;607&nbsp;160&nbsp;163</a> (8:00–15:00) nebo napište na <a href="mailto:info@skolaflow.cz">info@skolaflow.cz</a>.</p>';
       }
 
       var success = document.createElement('div');
